@@ -1,0 +1,3026 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Happy Birthday Charlyn ✨ | Manila to India's 26 Lakh Lily Garden</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    /* ==========================================================================
+       1. DESIGN TOKENS & GLOBAL RESET
+       ========================================================================== */
+    :root {
+      --bg-obsidian: #0d0718;
+      --bg-midnight: #1b1033;
+      --lavender-main: #b57edc;
+      --lavender-light: #d8b4fe;
+      --lavender-pale: #f8f2ff;
+      --gold-accent: #ffd166;
+      --gold-soft: rgba(255, 209, 102, 0.36);
+      --text-ink: #201233;
+      --text-muted: #5a4278;
+      --font-serif: 'Playfair Display', Georgia, serif;
+      --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100dvh;
+      overflow: hidden;
+      background: radial-gradient(circle at 50% 24%, #28164a 0%, #0d0718 75%, #06030c 100%);
+      font-family: var(--font-sans);
+      color: var(--lavender-pale);
+      touch-action: none;
+    }
+
+    /* ==========================================================================
+       2. AMBIENT STARS/PETALS & CHASE ATLANTIC MOODY SYNTH TOGGLE
+       ========================================================================== */
+    #ambient-layer {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 1;
+      overflow: hidden;
+    }
+
+    .ambient-particle {
+      position: absolute;
+      animation: driftDown linear infinite;
+    }
+
+    @keyframes driftDown {
+      0% { transform: translateY(-10vh) translateX(0px) rotate(0deg); opacity: 0; }
+      15% { opacity: 0.45; }
+      85% { opacity: 0.35; }
+      100% { transform: translateY(110vh) translateX(26px) rotate(360deg); opacity: 0; }
+    }
+
+    #music-toggle {
+      position: fixed;
+      top: 12px;
+      right: 12px;
+      z-index: 220;
+      background: rgba(20, 12, 38, 0.9);
+      border: 1px solid var(--gold-soft);
+      color: var(--lavender-light);
+      padding: 7px 12px;
+      border-radius: 999px;
+      font-family: var(--font-sans);
+      font-size: 11.5px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.48);
+      cursor: pointer;
+    }
+
+    #music-toggle.on {
+      border-color: var(--gold-accent);
+      color: var(--gold-accent);
+    }
+
+    /* ==========================================================================
+       3. ACT 1: 3D FOLDABLE LAVENDER BIRTHDAY CARD
+       ========================================================================== */
+    #act1-card-stage {
+      position: relative;
+      z-index: 10;
+      width: 100%;
+      height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 14px;
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    #act1-card-stage.hidden {
+      opacity: 0;
+      pointer-events: none;
+      transform: scale(0.94);
+    }
+
+    .card-top-hint {
+      font-size: 11.5px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--gold-accent);
+      margin-bottom: 12px;
+      text-shadow: 0 2px 10px rgba(255, 209, 102, 0.35);
+      animation: floatHint 2.4s ease-in-out infinite;
+    }
+
+    @keyframes floatHint {
+      0%, 100% { transform: translateY(0); opacity: 0.85; }
+      50% { transform: translateY(-3px); opacity: 1; }
+    }
+
+    .book-viewport {
+      width: min(88vw, 355px);
+      height: min(72dvh, 520px);
+      perspective: 1800px;
+      position: relative;
+      transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    @media (min-width: 720px) {
+      .book-viewport {
+        width: 365px;
+        height: 530px;
+      }
+      .book-viewport.is-open {
+        transform: translateX(182px);
+      }
+    }
+
+    .book-spine {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      transform-style: preserve-3d;
+    }
+
+    /* INSIDE RIGHT PAGE: Upbeat Opening Note (Distinct from Act 5's Emotional Letter) */
+    .page-right {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(165deg, #fcf8ff 0%, #efe2ff 100%);
+      border-radius: 6px 22px 22px 6px;
+      border: 1.5px solid rgba(181, 126, 220, 0.5);
+      box-shadow:
+        0 24px 55px rgba(0, 0, 0, 0.65),
+        inset 14px 0 26px rgba(102, 58, 145, 0.14);
+      padding: 22px 20px 18px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      color: var(--text-ink);
+      overflow-y: auto;
+    }
+
+    .page-leaf {
+      position: absolute;
+      inset: 0;
+      transform-origin: left center;
+      transform-style: preserve-3d;
+      transition: transform 1.05s cubic-bezier(0.25, 0.9, 0.3, 1);
+      cursor: pointer;
+      z-index: 5;
+    }
+
+    .book-viewport.is-open .page-leaf {
+      transform: rotateY(-180deg);
+    }
+
+    .leaf-face {
+      position: absolute;
+      inset: 0;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      border-radius: 6px 22px 22px 6px;
+      overflow: hidden;
+    }
+
+    /* FRONT COVER */
+    .cover-front {
+      background: linear-gradient(145deg, #2c174d 0%, #150b29 58%, #24123e 100%);
+      border: 2px solid var(--gold-accent);
+      box-shadow:
+        0 24px 50px rgba(0, 0, 0, 0.72),
+        inset 0 0 36px rgba(181, 126, 220, 0.25);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      padding: 22px 18px;
+      text-align: center;
+    }
+
+    .cover-inner-border {
+      position: absolute;
+      inset: 10px;
+      border: 1px solid rgba(255, 209, 102, 0.45);
+      border-radius: 4px 15px 15px 4px;
+      pointer-events: none;
+    }
+
+    .cover-pill {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold-accent);
+      background: rgba(255, 209, 102, 0.12);
+      border: 1px solid rgba(255, 209, 102, 0.35);
+      padding: 5px 13px;
+      border-radius: 999px;
+    }
+
+    .cover-art-wrap {
+      width: 186px;
+      height: 186px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      filter: drop-shadow(0 12px 22px rgba(0, 0, 0, 0.5));
+      animation: bobIllustration 3.6s ease-in-out infinite;
+    }
+
+    @keyframes bobIllustration {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-6px); }
+    }
+
+    .foil-title {
+      font-family: var(--font-serif);
+      font-size: 29px;
+      line-height: 1.18;
+      color: #ffffff;
+      text-shadow: 0 2px 16px rgba(181, 126, 220, 0.7);
+    }
+
+    .foil-title span {
+      display: block;
+      font-style: italic;
+      background: linear-gradient(135deg, #fff3c4 0%, #ffd166 50%, #e6a832 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .cover-tap-badge {
+      font-size: 12.5px;
+      font-weight: 700;
+      color: var(--lavender-light);
+      background: rgba(181, 126, 220, 0.22);
+      border: 1px solid rgba(216, 180, 254, 0.38);
+      padding: 9px 18px;
+      border-radius: 999px;
+    }
+
+    /* INSIDE LEFT PAGE: Friendship Memory Card + Start Birthday Adventure CTA */
+    .cover-back-left {
+      transform: rotateY(180deg);
+      background: linear-gradient(165deg, #f6edff 0%, #e4ceff 100%);
+      border-radius: 22px 6px 6px 22px;
+      border: 1.5px solid rgba(181, 126, 220, 0.5);
+      box-shadow: inset -14px 0 26px rgba(102, 58, 145, 0.14);
+      padding: 18px 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      text-align: center;
+      color: var(--text-ink);
+    }
+
+    @media (max-width: 719px) {
+      .book-viewport.view-left-mobile .page-leaf {
+        transform: rotateY(0deg);
+        z-index: 15;
+      }
+      .book-viewport.view-left-mobile .cover-front {
+        opacity: 0;
+        pointer-events: none;
+      }
+      .book-viewport.view-left-mobile .cover-back-left {
+        transform: rotateY(0deg);
+        border-radius: 6px 22px 22px 6px;
+      }
+    }
+
+    .est-pill {
+      background: linear-gradient(135deg, #2b184a 0%, #1d1433 100%);
+      color: var(--gold-accent);
+      border: 1.5px solid var(--gold-accent);
+      border-radius: 14px;
+      padding: 8px 12px;
+      width: 100%;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .vibes-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 6px;
+      margin: 4px 0;
+    }
+
+    .vibe-tag {
+      background: rgba(142, 78, 198, 0.14);
+      border: 1px solid rgba(142, 78, 198, 0.32);
+      color: #4a2075;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 9px;
+      border-radius: 999px;
+    }
+
+    .start-adventure-btn {
+      width: 100%;
+      padding: 13px 14px;
+      border: none;
+      border-radius: 14px;
+      background: linear-gradient(135deg, #8e4ec6 0%, #5b258c 100%);
+      color: #ffffff;
+      font-family: var(--font-sans);
+      font-size: 13px;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow:
+        0 10px 24px rgba(91, 37, 140, 0.45),
+        0 0 0 3px rgba(181, 126, 220, 0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: transform 0.16s ease;
+    }
+
+    .start-adventure-btn:active {
+      transform: scale(0.97);
+    }
+
+    .note-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(123, 76, 160, 0.22);
+      padding-bottom: 8px;
+      margin-bottom: 10px;
+    }
+
+    .note-header h2 {
+      font-family: var(--font-serif);
+      font-size: 21px;
+      color: #552882;
+    }
+
+    .note-body {
+      font-size: 13.3px;
+      line-height: 1.56;
+      color: #26143d;
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+      flex: 1;
+      justify-content: center;
+    }
+
+    .note-signoff {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 20px;
+      font-weight: 700;
+      color: #552882;
+      margin-top: 2px;
+    }
+
+    .card-switcher-bar {
+      display: none;
+      margin-top: 12px;
+      gap: 8px;
+      z-index: 20;
+    }
+
+    .book-viewport.is-open + .card-switcher-bar {
+      display: flex;
+    }
+
+    @media (min-width: 720px) {
+      .book-viewport.is-open + .card-switcher-bar {
+        display: none;
+      }
+    }
+
+    .tab-pill {
+      background: rgba(29, 20, 51, 0.9);
+      border: 1px solid rgba(216, 180, 254, 0.35);
+      color: var(--lavender-light);
+      padding: 8px 13px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .tab-pill.active {
+      background: var(--lavender-main);
+      color: #120c1f;
+      border-color: #fff;
+    }
+
+    /* ==========================================================================
+       4. ACTS 2, 3, 4, 6 — 2D GAME CANVAS & INTERACTIVE HUDS
+       ========================================================================== */
+    #adventure-stage {
+      position: fixed;
+      inset: 0;
+      z-index: 30;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.6s ease;
+    }
+
+    #adventure-stage.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    #game-canvas {
+      width: 100%;
+      height: 100%;
+      display: block;
+      touch-action: none;
+    }
+
+    /* Top HUD */
+    #top-hud {
+      position: fixed;
+      top: 12px;
+      left: 12px;
+      right: 112px;
+      z-index: 70;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 6px;
+      pointer-events: none;
+    }
+
+    .hud-pill {
+      pointer-events: auto;
+      background: rgba(13, 7, 24, 0.88);
+      border: 1px solid rgba(216, 180, 254, 0.36);
+      color: var(--lavender-light);
+      padding: 6px 11px;
+      border-radius: 999px;
+      font-size: 11.5px;
+      font-weight: 700;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.38);
+    }
+
+    .hud-pill.gold {
+      border-color: var(--gold-accent);
+      color: var(--gold-accent);
+    }
+
+    /* Story Banner */
+    #story-banner {
+      position: fixed;
+      top: 52px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 65;
+      background: rgba(18, 10, 34, 0.92);
+      border: 1px solid rgba(255, 209, 102, 0.45);
+      color: #ffffff;
+      padding: 7px 15px;
+      border-radius: 999px;
+      font-size: 11.5px;
+      font-weight: 700;
+      white-space: nowrap;
+      max-width: 94vw;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      pointer-events: none;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.45);
+    }
+
+    /* Act 3 Action Button (Blow Candles -> Cut Cake -> Continue to Game) */
+    #act3-action-btn {
+      position: fixed;
+      bottom: 26px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 85;
+      background: linear-gradient(135deg, #ffd166 0%, #f4a261 100%);
+      border: 2px solid #fff8e6;
+      color: #1d1433;
+      padding: 13px 22px;
+      border-radius: 999px;
+      font-family: var(--font-sans);
+      font-size: 13.5px;
+      font-weight: 800;
+      box-shadow:
+        0 12px 30px rgba(255, 209, 102, 0.48),
+        0 0 0 6px rgba(255, 209, 102, 0.18);
+      cursor: pointer;
+      display: none;
+      white-space: nowrap;
+      animation: pulseBtn 1.6s ease-in-out infinite;
+    }
+
+    #act3-action-btn.visible {
+      display: block;
+    }
+
+    @keyframes pulseBtn {
+      0%, 100% { transform: translateX(-50%) scale(1); }
+      50% { transform: translateX(-50%) scale(1.05); }
+    }
+
+    /* Act 4 Virtual Joystick & Grass/Heart Shoo Button */
+    #joystick-zone {
+      position: fixed;
+      bottom: 18px;
+      left: 18px;
+      z-index: 80;
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      background: rgba(20, 12, 38, 0.65);
+      border: 2px solid rgba(216, 180, 254, 0.35);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(6px);
+      touch-action: none;
+    }
+
+    #joystick-zone.visible {
+      display: flex;
+    }
+
+    #joystick-knob {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #d8b4fe 0%, #9b5de5 100%);
+      border: 2px solid #ffd166;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5);
+      pointer-events: none;
+      transform: translate(0px, 0px);
+    }
+
+    #toss-treat-btn {
+      position: fixed;
+      bottom: 24px;
+      right: 18px;
+      z-index: 80;
+      background: linear-gradient(135deg, #80ed99 0%, #38b000 100%);
+      border: 2px solid #ffffff;
+      color: #0d2818;
+      padding: 13px 16px;
+      border-radius: 999px;
+      font-family: var(--font-sans);
+      font-size: 12.5px;
+      font-weight: 800;
+      box-shadow: 0 8px 24px rgba(56, 176, 0, 0.45);
+      cursor: pointer;
+      display: none;
+    }
+
+    #toss-treat-btn.visible {
+      display: block;
+    }
+
+    #toss-treat-btn:active {
+      transform: scale(0.94);
+    }
+
+    /* ==========================================================================
+       5. ACT 5: EMOTIONAL FINAL PRESENT LETTER MODAL
+       ========================================================================== */
+    #act5-letter-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 160;
+      background: rgba(9, 4, 18, 0.8);
+      backdrop-filter: blur(10px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.6s ease;
+    }
+
+    #act5-letter-modal.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .emotional-card-sheet {
+      width: min(92vw, 430px);
+      max-height: 88dvh;
+      overflow-y: auto;
+      background: linear-gradient(160deg, #2b1648 0%, #150b28 60%, #21103a 100%);
+      border: 2px solid var(--gold-accent);
+      border-radius: 24px;
+      padding: 24px 20px;
+      text-align: center;
+      box-shadow:
+        0 28px 70px rgba(0, 0, 0, 0.85),
+        0 0 50px rgba(181, 126, 220, 0.35),
+        inset 0 0 28px rgba(255, 209, 102, 0.12);
+      transform: translateY(22px) scale(0.94);
+      transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    #act5-letter-modal.open .emotional-card-sheet {
+      transform: translateY(0) scale(1);
+    }
+
+    .letter-crest {
+      display: inline-block;
+      font-size: 10.5px;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold-accent);
+      background: rgba(255, 209, 102, 0.14);
+      border: 1px solid rgba(255, 209, 102, 0.38);
+      padding: 5px 13px;
+      border-radius: 999px;
+      margin-bottom: 10px;
+    }
+
+    .emotional-card-sheet h2 {
+      font-family: var(--font-serif);
+      font-size: 24px;
+      color: #ffffff;
+      margin-bottom: 12px;
+      line-height: 1.24;
+    }
+
+    .emotional-letter-body {
+      text-align: left;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(216, 180, 254, 0.24);
+      border-radius: 16px;
+      padding: 15px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      font-size: 13.4px;
+      line-height: 1.66;
+      color: var(--lavender-pale);
+      margin-bottom: 14px;
+    }
+
+    .emotional-sign {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--gold-accent);
+      margin-bottom: 16px;
+    }
+
+    .sunset-cta-btn {
+      width: 100%;
+      padding: 13px 18px;
+      border: none;
+      border-radius: 14px;
+      background: linear-gradient(135deg, #ffd166 0%, #f4a261 100%);
+      color: #1d1433;
+      font-family: var(--font-sans);
+      font-size: 14px;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 10px 26px rgba(255, 209, 102, 0.42);
+    }
+
+    .sunset-cta-btn:active {
+      transform: scale(0.97);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Floating Lavender Petals & Fireflies -->
+  <div id="ambient-layer"></div>
+
+  <!-- Top-Right Chase Atlantic Moody Synth Toggle -->
+  <button id="music-toggle" aria-label="Toggle Vibes">
+    <span id="music-icon">🔇</span>
+    <span id="music-text">Vibes Off</span>
+  </button>
+
+  <!-- ========================================================================
+       ACT 1: 3D FOLDABLE LAVENDER BIRTHDAY CARD
+       ======================================================================== -->
+  <main id="act1-card-stage">
+    <div class="card-top-hint" id="card-hint">✨ November 27 • Tap the cover to open ✨</div>
+
+    <div class="book-viewport" id="book-viewport">
+      <div class="book-spine">
+
+        <!-- INSIDE RIGHT PAGE: Light, Upbeat Opening Note (Distinct from Act 5) -->
+        <section class="page-right">
+          <div>
+            <div class="note-header">
+              <h2>Happy Birthday, Charlyn ✨</h2>
+              <span style="font-size: 19px;">🪻💜</span>
+            </div>
+            <div class="note-body">
+              <p>
+                Today is all about celebrating you! From late-night Chase Atlantic playlists to our shared love for Jollibee runs, lavender skies, and cozy capybaras, you make every chat brighter.
+              </p>
+              <p>
+                Ready for a little birthday trip? Open your adventure on the next page—I have a whole lily garden and a special surprise waiting for you!
+              </p>
+              <div class="note-signoff">Rohan.</div>
+            </div>
+          </div>
+
+          <button class="start-adventure-btn" id="start-adventure-right-btn">
+            <span>Start Your Birthday Adventure 🚁</span>
+          </button>
+        </section>
+
+        <!-- HINGED FRONT LEAF: Cover + Inside Left Friendship Memory Card -->
+        <div class="page-leaf" id="page-leaf">
+
+          <!-- FRONT COVER -->
+          <div class="leaf-face cover-front">
+            <div class="cover-inner-border"></div>
+            <div class="cover-pill">November 27 • Special Edition</div>
+
+            <div class="cover-art-wrap">
+              <!-- Custom Blocky/Illustrated Lily & Capybara Emblem -->
+              <svg viewBox="0 0 220 220" width="184" height="184" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <radialGradient id="lavenderHalo" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stop-color="#b57edc" stop-opacity="0.55" />
+                    <stop offset="100%" stop-color="#b57edc" stop-opacity="0" />
+                  </radialGradient>
+                  <linearGradient id="lilyPetal" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#f8f2ff" />
+                    <stop offset="55%" stop-color="#d8b4fe" />
+                    <stop offset="100%" stop-color="#8e4ec6" />
+                  </linearGradient>
+                  <linearGradient id="capyFur" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="#cc9564" />
+                    <stop offset="100%" stop-color="#9c683d" />
+                  </linearGradient>
+                </defs>
+                <circle cx="110" cy="110" r="98" fill="url(#lavenderHalo)" />
+                <!-- Left Lily -->
+                <g transform="translate(46, 56) rotate(-20)">
+                  <ellipse cx="0" cy="-19" rx="8" ry="21" fill="url(#lilyPetal)" />
+                  <ellipse cx="18" cy="-6" rx="8" ry="21" transform="rotate(72)" fill="url(#lilyPetal)" />
+                  <ellipse cx="11" cy="15" rx="8" ry="21" transform="rotate(144)" fill="url(#lilyPetal)" />
+                  <ellipse cx="-11" cy="15" rx="8" ry="21" transform="rotate(216)" fill="url(#lilyPetal)" />
+                  <ellipse cx="-18" cy="-6" rx="8" ry="21" transform="rotate(288)" fill="url(#lilyPetal)" />
+                  <circle cx="0" cy="0" r="5" fill="#ffd166" />
+                </g>
+                <!-- Right Lily -->
+                <g transform="translate(174, 60) rotate(22)">
+                  <ellipse cx="0" cy="-19" rx="8" ry="21" fill="url(#lilyPetal)" />
+                  <ellipse cx="18" cy="-6" rx="8" ry="21" transform="rotate(72)" fill="url(#lilyPetal)" />
+                  <ellipse cx="11" cy="15" rx="8" ry="21" transform="rotate(144)" fill="url(#lilyPetal)" />
+                  <ellipse cx="-11" cy="15" rx="8" ry="21" transform="rotate(216)" fill="url(#lilyPetal)" />
+                  <ellipse cx="-18" cy="-6" rx="8" ry="21" transform="rotate(288)" fill="url(#lilyPetal)" />
+                  <circle cx="0" cy="0" r="5" fill="#ffd166" />
+                </g>
+                <!-- Cute Blocky/Chibi Capybara -->
+                <rect x="66" y="126" width="88" height="58" rx="22" fill="url(#capyFur)" />
+                <rect x="68" y="74" width="16" height="20" rx="6" fill="#7a4c28" />
+                <rect x="136" y="74" width="16" height="20" rx="6" fill="#7a4c28" />
+                <rect x="64" y="80" width="92" height="64" rx="24" fill="url(#capyFur)" />
+                <rect x="84" y="106" width="52" height="30" rx="13" fill="#82532d" />
+                <circle cx="99" cy="116" r="2.8" fill="#381e0c" />
+                <circle cx="121" cy="116" r="2.8" fill="#381e0c" />
+                <path d="M110 119 L110 126 M103 128 Q110 133 117 128" stroke="#381e0c" stroke-width="2.4" fill="none" stroke-linecap="round" />
+                <path d="M78 100 Q85 95 92 100" stroke="#381e0c" stroke-width="2.8" fill="none" stroke-linecap="round" />
+                <path d="M128 100 Q135 95 142 100" stroke="#381e0c" stroke-width="2.8" fill="none" stroke-linecap="round" />
+                <ellipse cx="77" cy="109" rx="6" ry="3.5" fill="#f28ca8" opacity="0.65" />
+                <ellipse cx="143" cy="109" rx="6" ry="3.5" fill="#f28ca8" opacity="0.65" />
+                <!-- Headphones -->
+                <path d="M62 104 C62 62, 158 62, 158 104" stroke="#d8b4fe" stroke-width="6" fill="none" stroke-linecap="round" />
+                <rect x="52" y="92" width="14" height="28" rx="7" fill="#b57edc" stroke="#ffd166" stroke-width="1.8" />
+                <rect x="154" y="92" width="14" height="28" rx="7" fill="#b57edc" stroke="#ffd166" stroke-width="1.8" />
+                <!-- Yuzu Orange -->
+                <circle cx="110" cy="73" r="9" fill="#ffb703" />
+                <path d="M110 64 Q115 58 120 62 Q115 66 110 64" fill="#4a7c59" />
+              </svg>
+            </div>
+
+            <h1 class="foil-title">Happy Birthday,<span>Charlyn</span></h1>
+            <div class="cover-tap-badge">Tap to Open 💌</div>
+          </div>
+
+          <!-- INSIDE LEFT PAGE: Aesthetic Friendship Memory Card -->
+          <div class="leaf-face cover-back-left">
+            <div class="est-pill">Est. April 2025 • Instagram ✨</div>
+
+            <div style="width:100%;">
+              <div style="font-size:11px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;color:#6c3b9e;margin-bottom:6px;">
+                Charlyn's Favorite Vibes
+              </div>
+              <div class="vibes-grid">
+                <span class="vibe-tag">💜 Lavender</span>
+                <span class="vibe-tag">🪻 Lilies</span>
+                <span class="vibe-tag">🦫 Capybaras</span>
+                <span class="vibe-tag">🍗 Jollibee</span>
+                <span class="vibe-tag">🎧 Chase Atlantic</span>
+              </div>
+            </div>
+
+            <!-- Mini Illustration: Manila to India Flight Badge -->
+            <svg viewBox="0 0 240 135" width="210" height="118" xmlns="http://www.w3.org/2000/svg">
+              <rect x="14" y="14" width="212" height="106" rx="16" fill="#251340" stroke="#ffd166" stroke-width="1.8" />
+              <text x="120" y="42" fill="#ffd166" font-size="11" font-weight="800" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif">MANILA 🇵🇭 ✈️ INDIA 🇮🇳</text>
+              <path d="M46 76 Q120 46 194 76" stroke="#d8b4fe" stroke-width="2.2" stroke-dasharray="4 4" fill="none" />
+              <circle cx="46" cy="76" r="5" fill="#ffd166" />
+              <circle cx="194" cy="76" r="5" fill="#ffd166" />
+              <text x="120" y="98" fill="#f8f2ff" font-size="10.5" font-weight="600" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif">Destination: India's 26 Lakh Lily Garden</text>
+            </svg>
+
+            <button class="start-adventure-btn" id="start-adventure-left-btn">
+              <span>Start Your Birthday Adventure 🚁</span>
+            </button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Portrait Page Switcher -->
+    <div class="card-switcher-bar" id="card-switcher-bar">
+      <button class="tab-pill active" id="tab-right-note">💌 Birthday Note</button>
+      <button class="tab-pill" id="tab-left-memory">✨ Memory Card</button>
+      <button class="tab-pill" id="tab-close-card">Close</button>
+    </div>
+  </main>
+
+  <!-- ========================================================================
+       ACTS 2, 3, 4, 6 — 2D GAME CANVAS & INTERACTIVE CONTROLS
+       ======================================================================== -->
+  <section id="adventure-stage">
+    <div id="top-hud">
+      <button class="hud-pill" id="back-to-card-btn" style="cursor:pointer;">← Card</button>
+      <div class="hud-pill gold" id="act-status-pill">Act 2: Manila Airport 🇵🇭</div>
+      <div class="hud-pill" id="lily-hud-pill" style="display:none;">✨ 0/5 • 🪻 0/10</div>
+      <button class="hud-pill" id="replay-corner-btn" style="display:none;cursor:pointer;">Replay Adventure ↺</button>
+    </div>
+
+    <div id="story-banner">Charlyn is boarding the helicopter at MANILA AIRPORT... 🚁</div>
+
+    <!-- Act 3 Interactive Button (Blow Candles -> Cut Cake -> Continue to Game) -->
+    <button id="act3-action-btn">Tap to Blow Out the Candles 🌬️</button>
+
+    <!-- Act 4 Virtual Joystick & Grass/Heart Treat Toss -->
+    <div id="joystick-zone" aria-label="Move Joystick">
+      <div id="joystick-knob"></div>
+    </div>
+    <button id="toss-treat-btn">🌿 Toss Grass Treat</button>
+
+    <canvas id="game-canvas"></canvas>
+  </section>
+
+  <!-- ========================================================================
+       ACT 5: UNLOCKED FINAL PRESENT CARD (DEEPLY EMOTIONAL LETTER)
+       ======================================================================== -->
+  <div id="act5-letter-modal">
+    <div class="emotional-card-sheet">
+      <div class="letter-crest">🎁 Final Birthday Present Unlocked 🎁</div>
+      <h2>For the Girl Who Means the World Across the Miles 💜</h2>
+
+      <div class="emotional-letter-body">
+        <p>
+          Charlyn, ever since we first connected on Instagram back in April 2025, you have become one of the most genuine and irreplaceable people in my life. Living in two different countries with thousands of miles between Manila and India is never easy—especially on a day like November 27, when all I wish is that I could stand right beside you and celebrate your birthday in person.
+        </p>
+        <p>
+          Even though distance keeps me from handing you real lilies today, please know that my heart is right there cheering for you. Your kindness, your warmth, and the way you listen have brought so much light into my days, and I am endlessly grateful that our paths crossed.
+        </p>
+        <p>
+          You deserve every bit of happiness, peace, and love this world can offer—not just today, but every single day of the year ahead. Keep smiling, keep shining, and never forget how deeply appreciated you are.
+        </p>
+      </div>
+
+      <div class="emotional-sign">Rohan.</div>
+
+      <button class="sunset-cta-btn" id="watch-sunset-btn">Watch the Sunset Together 🌅</button>
+    </div>
+  </div>
+
+  <script>
+    /* ==========================================================================
+       1. AMBIENT STARS/PETALS & CHASE ATLANTIC MOODY SYNTH AUDIO ENGINE
+       ========================================================================== */
+    const ambientLayer = document.getElementById('ambient-layer');
+    for (let i = 0; i < 22; i++) {
+      const p = document.createElement('div');
+      p.className = 'ambient-particle';
+      const isStar = i % 3 === 0;
+      const size = isStar ? (3.5 + Math.random() * 4) : (10 + Math.random() * 7);
+      p.style.width = `${size}px`;
+      p.style.height = isStar ? `${size}px` : `${size * 1.4}px`;
+      p.style.borderRadius = isStar ? '50%' : '50% 50% 50% 0';
+      p.style.background = isStar
+        ? 'radial-gradient(circle, #ffd166 0%, rgba(255,209,102,0) 70%)'
+        : 'linear-gradient(135deg, #d8b4fe 0%, #b57edc 100%)';
+      p.style.left = `${Math.random() * 100}%`;
+      p.style.animationDuration = `${9 + Math.random() * 10}s`;
+      p.style.animationDelay = `${-Math.random() * 14}s`;
+      ambientLayer.appendChild(p);
+    }
+
+    let audioCtx = null;
+    let musicOn = false;
+    let synthInterval = null;
+    let chordStep = 0;
+
+    const musicToggle = document.getElementById('music-toggle');
+    const musicIcon = document.getElementById('music-icon');
+    const musicText = document.getElementById('music-text');
+
+    // Moody late-night R&B/synth chord progression (Cm9 -> Abmaj7 -> Fm9 -> Gm7)
+    const chords = [
+      { bass: 65.41, notes: [130.81, 155.56, 196.00, 233.08, 293.66] },
+      { bass: 51.91, notes: [103.83, 155.56, 196.00, 246.94, 311.13] },
+      { bass: 43.65, notes: [87.31,  130.81, 174.61, 207.65, 261.63] },
+      { bass: 49.00, notes: [98.00,  146.83, 196.00, 233.08, 293.66] }
+    ];
+
+    function triggerSynthChord() {
+      if (!musicOn || !audioCtx) return;
+      const now = audioCtx.currentTime;
+      const c = chords[chordStep % chords.length];
+      chordStep++;
+
+      const sub = audioCtx.createOscillator();
+      const subGain = audioCtx.createGain();
+      sub.type = 'sine';
+      sub.frequency.setValueAtTime(c.bass, now);
+      subGain.gain.setValueAtTime(0.001, now);
+      subGain.gain.exponentialRampToValueAtTime(0.08, now + 0.25);
+      subGain.gain.exponentialRampToValueAtTime(0.001, now + 3.2);
+      sub.connect(subGain);
+      subGain.connect(audioCtx.destination);
+      sub.start(now);
+      sub.stop(now + 3.3);
+
+      c.notes.forEach((freq) => {
+        const osc = audioCtx.createOscillator();
+        const filter = audioCtx.createBiquadFilter();
+        const gain = audioCtx.createGain();
+        osc.type = 'triangle';
+        osc.frequency.setValueAtTime(freq, now);
+        filter.type = 'lowpass';
+        filter.frequency.setValueAtTime(540, now);
+        gain.gain.setValueAtTime(0.0001, now);
+        gain.gain.exponentialRampToValueAtTime(0.023, now + 0.85);
+        gain.gain.exponentialRampToValueAtTime(0.0001, now + 3.7);
+        osc.connect(filter);
+        filter.connect(gain);
+        gain.connect(audioCtx.destination);
+        osc.start(now);
+        osc.stop(now + 3.8);
+      });
+    }
+
+    function playChime(f1 = 587.33, f2 = 880, dur = 0.24) {
+      if (!musicOn || !audioCtx) return;
+      const now = audioCtx.currentTime;
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(f1, now);
+      osc.frequency.exponentialRampToValueAtTime(f2, now + dur);
+      gain.gain.setValueAtTime(0.055, now);
+      gain.gain.exponentialRampToValueAtTime(0.0008, now + dur);
+      osc.connect(gain);
+      gain.connect(audioCtx.destination);
+      osc.start(now);
+      osc.stop(now + dur + 0.02);
+    }
+
+    musicToggle.addEventListener('click', () => {
+      if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      if (audioCtx.state === 'suspended') audioCtx.resume();
+      musicOn = !musicOn;
+      if (musicOn) {
+        musicToggle.classList.add('on');
+        musicIcon.textContent = '🎧';
+        musicText.textContent = 'Vibes On';
+        triggerSynthChord();
+        synthInterval = setInterval(triggerSynthChord, 3500);
+      } else {
+        musicToggle.classList.remove('on');
+        musicIcon.textContent = '🔇';
+        musicText.textContent = 'Vibes Off';
+        clearInterval(synthInterval);
+      }
+    });
+
+    /* ==========================================================================
+       2. ACT 1: 3D FOLDABLE CARD INTERACTION
+       ========================================================================== */
+    const act1Stage = document.getElementById('act1-card-stage');
+    const bookViewport = document.getElementById('book-viewport');
+    const pageLeaf = document.getElementById('page-leaf');
+    const cardHint = document.getElementById('card-hint');
+    const tabRightNote = document.getElementById('tab-right-note');
+    const tabLeftMemory = document.getElementById('tab-left-memory');
+    const tabCloseCard = document.getElementById('tab-close-card');
+    const startAdventureLeftBtn = document.getElementById('start-adventure-left-btn');
+    const startAdventureRightBtn = document.getElementById('start-adventure-right-btn');
+
+    let isCardOpen = false;
+
+    function openCard() {
+      if (isCardOpen) return;
+      isCardOpen = true;
+      bookViewport.classList.add('is-open');
+      bookViewport.classList.remove('view-left-mobile');
+      tabRightNote.classList.add('active');
+      tabLeftMemory.classList.remove('active');
+      cardHint.textContent = '💜 Read your note & start your birthday adventure';
+      playChime(440, 659.25, 0.32);
+    }
+
+    function closeCard() {
+      isCardOpen = false;
+      bookViewport.classList.remove('is-open', 'view-left-mobile');
+      cardHint.textContent = '✨ November 27 • Tap the cover to open ✨';
+      playChime(523.25, 392, 0.25);
+    }
+
+    pageLeaf.addEventListener('click', (e) => {
+      if (e.target.closest('button')) return;
+      if (!isCardOpen) openCard();
+      else if (window.innerWidth >= 720) closeCard();
+    });
+
+    tabRightNote.addEventListener('click', () => {
+      bookViewport.classList.remove('view-left-mobile');
+      tabRightNote.classList.add('active');
+      tabLeftMemory.classList.remove('active');
+    });
+
+    tabLeftMemory.addEventListener('click', () => {
+      bookViewport.classList.add('view-left-mobile');
+      tabLeftMemory.classList.add('active');
+      tabRightNote.classList.remove('active');
+    });
+
+    tabCloseCard.addEventListener('click', closeCard);
+
+    /* ==========================================================================
+       3. 6-ACT 2D GAME CANVAS ENGINE
+       ========================================================================== */
+    const adventureStage = document.getElementById('adventure-stage');
+    const canvas = document.getElementById('game-canvas');
+    const ctx = canvas.getContext('2d');
+
+    const backToCardBtn = document.getElementById('back-to-card-btn');
+    const actStatusPill = document.getElementById('act-status-pill');
+    const lilyHudPill = document.getElementById('lily-hud-pill');
+    const replayCornerBtn = document.getElementById('replay-corner-btn');
+    const storyBanner = document.getElementById('story-banner');
+    const act3ActionBtn = document.getElementById('act3-action-btn');
+    const joystickZone = document.getElementById('joystick-zone');
+    const joystickKnob = document.getElementById('joystick-knob');
+    const tossTreatBtn = document.getElementById('toss-treat-btn');
+
+    const act5LetterModal = document.getElementById('act5-letter-modal');
+    const watchSunsetBtn = document.getElementById('watch-sunset-btn');
+
+    let W = window.innerWidth;
+    let H = window.innerHeight;
+    let dpr = Math.min(window.devicePixelRatio || 1, 2);
+
+    function resizeCanvas() {
+      W = window.innerWidth;
+      H = window.innerHeight;
+      dpr = Math.min(window.devicePixelRatio || 1, 2);
+      canvas.width = W * dpr;
+      canvas.height = H * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    // Master State Machine across Acts 2–6:
+    // 'ACT2_BOARDING' -> 'ACT2_FLIGHT' -> 'ACT2_LANDING'
+    // -> 'ACT3_WALK_TO_ROHAN' -> 'ACT3_DANCE' -> 'ACT3_BLOW_CANDLES' -> 'ACT3_CUT_CAKE' -> 'ACT3_CAKE_DONE'
+    // -> 'ACT4_LILY_GAME'
+    // -> 'ACT5_GIFT_DROP' -> 'ACT5_MODAL_OPEN'
+    // -> 'ACT6_SUNSET_BEACH'
+    let gameRunning = false;
+    let state = 'ACT2_BOARDING';
+    let stateTimer = 0;
+    let lastTime = 0;
+    let rafId = null;
+
+    // Avatars
+    const charlyn = {
+      x: 60, y: 300, walkPhase: 0, facing: 1,
+      visible: true, inHeli: false, sittingBeach: false, spinAngle: 0
+    };
+
+    const rohan = {
+      x: 300, y: 300, walkPhase: 0, facing: -1,
+      visible: false, sittingBeach: false, speechText: '', speechTimer: 0, spinAngle: 0
+    };
+
+    const heli = {
+      x: 150, y: 280, tilt: 0, rotorAngle: 0, visible: true
+    };
+
+    const cake = {
+      visible: false, x: 0, y: 0, candlesLit: true, cutProgress: 0
+    };
+
+    // Act 4 Mini-Game State
+    const TARGET_GOLDEN = 5;
+    const TARGET_NORMAL = 10;
+    let goldenCollected = 0;
+    let normalCollected = 0;
+
+    let bgClouds = [];
+    let decorativeLilies = [];
+    let collectibleLilies = [];
+    let capybaras = [];
+    let grassTreats = [];
+    let particles = [];
+    let fallingPetals = [];
+
+    // Act 5 Present Box
+    const finalGift = {
+      visible: false, x: 0, y: -60, targetY: 0, opened: false
+    };
+
+    // Controls: Virtual Joystick + Touch Drag + Keyboard
+    const input = {
+      up: false, down: false, left: false, right: false,
+      joyActive: false, joyX: 0, joyY: 0,
+      dragActive: false, dragX: 0, dragY: 0
+    };
+
+    // Exact 7 Capybara Messages (No "po", generous 5.0s display each, staggered cleanly)
+    const CAPY_MESSAGES = [
+      "I love you Charlyn 💜",
+      "Happy Birthday Charlyn 🎂",
+      "Mahal kita 💐",
+      "You are prettiest girl in world Charlyn 👑",
+      "Salamat you feed me 🌿",
+      "Salamat for being my friend ✨",
+      "Always be happy 🌸"
+    ];
+
+    function spawnBurst(x, y, color = '#ffd166', count = 16) {
+      for (let i = 0; i < count; i++) {
+        const a = (Math.PI * 2 * i) / count + Math.random() * 0.4;
+        const spd = 40 + Math.random() * 95;
+        particles.push({
+          x, y,
+          vx: Math.cos(a) * spd,
+          vy: Math.sin(a) * spd - 20,
+          color,
+          size: 3 + Math.random() * 3.2,
+          life: 0.75 + Math.random() * 0.45
+        });
+      }
+    }
+
+    function spawnSmokePuff(x, y) {
+      for (let i = 0; i < 16; i++) {
+        particles.push({
+          x: x + (Math.random() - 0.5) * 28,
+          y,
+          vx: (Math.random() - 0.5) * 20,
+          vy: -32 - Math.random() * 35,
+          color: 'rgba(245, 240, 255, 0.8)',
+          size: 5 + Math.random() * 5,
+          life: 1.0 + Math.random() * 0.4
+        });
+      }
+    }
+
+    function spawnPetalShower(count = 65) {
+      const colors = ['#d8b4fe', '#b57edc', '#f8f2ff', '#ffd166', '#f28ca8'];
+      for (let i = 0; i < count; i++) {
+        fallingPetals.push({
+          x: Math.random() * W,
+          y: -20 - Math.random() * (H * 0.7),
+          vy: 75 + Math.random() * 85,
+          sway: Math.random() * Math.PI * 2,
+          rot: Math.random() * Math.PI,
+          rotSpd: (Math.random() - 0.5) * 2.5,
+          size: 8 + Math.random() * 7,
+          color: colors[i % colors.length]
+        });
+      }
+    }
+
+    function updateLilyHud() {
+      lilyHudPill.textContent = `✨ ${goldenCollected}/${TARGET_GOLDEN} • 🪻 ${normalCollected}/${TARGET_NORMAL}`;
+    }
+
+    function spawnMeadowCapybaras(meadowTop, meadowBottom) {
+      // Staggered initial timers (0.6s, 4.2s, 7.8s, 11.4s) so messages appear one after another cleanly
+      const slots = [
+        { x: W * 0.22, y: meadowTop + 32, facing: 1,  initTimer: 0.6,  msgOffset: 0 },
+        { x: W * 0.74, y: meadowTop + 38, facing: -1, initTimer: 4.2,  msgOffset: 1 },
+        { x: W * 0.34, y: meadowBottom - 26, facing: 1, initTimer: 7.8,  msgOffset: 2 },
+        { x: W * 0.78, y: meadowBottom - 22, facing: -1, initTimer: 11.4, msgOffset: 3 }
+      ];
+
+      capybaras = slots.map((s, idx) => ({
+        id: idx,
+        x: s.x,
+        y: s.y,
+        facing: s.facing,
+        state: 'walk', // 'walk' | 'eat' | 'pause'
+        timer: s.initTimer,
+        speed: 30 + idx * 3,
+        grassAmount: 0,
+        grassX: s.x + s.facing * 24,
+        grassY: s.y + 12,
+        msgIndex: s.msgOffset,
+        currentMsg: '',
+        speechTimer: 0,
+        hop: 0,
+        distractedTimer: 0
+      }));
+    }
+
+    function initIndiaValleyDecor() {
+      const groundY = H * 0.64;
+      decorativeLilies = [];
+      const palettes = [
+        ['#f8f2ff', '#b57edc'],
+        ['#ffe6f4', '#f071b8'],
+        ['#ffffff', '#d8b4fe'],
+        ['#ffd6ba', '#ff8c69'],
+        ['#fff5d6', '#ffd166']
+      ];
+      const count = Math.max(95, Math.floor(W * 0.28));
+      for (let i = 0; i < count; i++) {
+        decorativeLilies.push({
+          x: 10 + Math.random() * (W - 20),
+          y: groundY + 4 + Math.random() * (H - groundY - 12),
+          size: 6.5 + Math.random() * 6,
+          swayOffset: Math.random() * Math.PI * 2,
+          palette: palettes[i % palettes.length]
+        });
+      }
+      decorativeLilies.sort((a, b) => a.y - b.y);
+    }
+
+    /* ==========================================================================
+       4. ACT INITIALIZERS
+       ========================================================================== */
+    function initAct2ManilaAirport() {
+      state = 'ACT2_BOARDING';
+      stateTimer = 0;
+      const groundY = H * 0.74;
+
+      heli.x = Math.min(185, W * 0.42);
+      heli.y = groundY - 34;
+      heli.tilt = 0;
+      heli.visible = true;
+
+      charlyn.x = Math.max(46, heli.x - 95);
+      charlyn.y = groundY - 26;
+      charlyn.facing = 1;
+      charlyn.visible = true;
+      charlyn.inHeli = false;
+      charlyn.sittingBeach = false;
+      charlyn.spinAngle = 0;
+
+      rohan.visible = false;
+      rohan.sittingBeach = false;
+      rohan.speechText = '';
+      rohan.speechTimer = 0;
+      cake.visible = false;
+      finalGift.visible = false;
+      finalGift.opened = false;
+
+      particles = [];
+      fallingPetals = [];
+      grassTreats = [];
+      bgClouds = [];
+      for (let i = 0; i < 8; i++) {
+        bgClouds.push({
+          x: Math.random() * W,
+          y: 72 + Math.random() * (H * 0.42),
+          scale: 0.65 + Math.random() * 0.65,
+          speed: 35 + Math.random() * 35
+        });
+      }
+
+      actStatusPill.textContent = 'Act 2: Manila Airport 🇵🇭';
+      lilyHudPill.style.display = 'none';
+      replayCornerBtn.style.display = 'none';
+      storyBanner.style.display = 'block';
+      storyBanner.textContent = 'Charlyn is boarding the helicopter at MANILA AIRPORT... 🚁';
+      act3ActionBtn.classList.remove('visible');
+      joystickZone.classList.remove('visible');
+      tossTreatBtn.classList.remove('visible');
+      act5LetterModal.classList.remove('open');
+    }
+
+    function initAct3WelcomeAndMeadow() {
+      state = 'ACT3_WALK_TO_ROHAN';
+      stateTimer = 0;
+      const groundY = H * 0.65;
+
+      initIndiaValleyDecor();
+      spawnMeadowCapybaras(groundY + 12, H - 30);
+
+      heli.x = Math.max(74, W * 0.17);
+      heli.y = groundY - 12;
+      heli.tilt = 0;
+      heli.visible = true;
+
+      charlyn.x = heli.x + 54;
+      charlyn.y = groundY + 18;
+      charlyn.facing = 1;
+      charlyn.visible = true;
+      charlyn.inHeli = false;
+      charlyn.spinAngle = 0;
+
+      rohan.x = Math.min(W - 74, W * 0.72);
+      rohan.y = groundY + 18;
+      rohan.facing = -1;
+      rohan.visible = true;
+      rohan.spinAngle = 0;
+      rohan.speechText = '';
+      rohan.speechTimer = 0;
+
+      actStatusPill.textContent = "Act 3: India's Highest Lily Garden 🇮🇳";
+      storyBanner.textContent = 'Welcome to India! Charlyn walks over to meet Rohan... 💜';
+    }
+
+    function initAct4LilyCollectorGame() {
+      state = 'ACT4_LILY_GAME';
+      stateTimer = 0;
+      goldenCollected = 0;
+      normalCollected = 0;
+      updateLilyHud();
+
+      const meadowTop = H * 0.61;
+      const meadowBottom = H - 36;
+
+      charlyn.x = W * 0.42;
+      charlyn.y = (meadowTop + meadowBottom) * 0.52;
+      charlyn.spinAngle = 0;
+
+      rohan.x = W * 0.82;
+      rohan.y = meadowTop + 12;
+      rohan.facing = -1;
+      rohan.speechText = 'Collect 5 Golden & 10 Lavender Lilies! ✨';
+      rohan.speechTimer = 4.5;
+
+      // Spawn 5 Golden Glowing Lilies + 10 Normal Lavender/Pink Lilies
+      collectibleLilies = [];
+      for (let i = 0; i < TARGET_GOLDEN; i++) {
+        collectibleLilies.push({
+          id: `g-${i}`,
+          isGolden: true,
+          x: 42 + Math.random() * (W - 84),
+          y: meadowTop + 18 + Math.random() * (meadowBottom - meadowTop - 32),
+          bob: Math.random() * Math.PI * 2,
+          nibbleProgress: 0
+        });
+      }
+      for (let i = 0; i < TARGET_NORMAL; i++) {
+        collectibleLilies.push({
+          id: `n-${i}`,
+          isGolden: false,
+          x: 34 + Math.random() * (W - 68),
+          y: meadowTop + 16 + Math.random() * (meadowBottom - meadowTop - 28),
+          bob: Math.random() * Math.PI * 2,
+          nibbleProgress: 0
+        });
+      }
+
+      actStatusPill.textContent = 'Act 4: Lily Garden Quest 🪻';
+      lilyHudPill.style.display = 'inline-block';
+      storyBanner.textContent = 'Gather 5 Golden Lilies & 10 Lilies! Toss grass to distract capybaras 🌿';
+      act3ActionBtn.classList.remove('visible');
+      joystickZone.classList.add('visible');
+      tossTreatBtn.classList.add('visible');
+    }
+
+    function initAct5PresentDrop() {
+      state = 'ACT5_GIFT_DROP';
+      stateTimer = 0;
+
+      joystickZone.classList.remove('visible');
+      tossTreatBtn.classList.remove('visible');
+
+      finalGift.visible = true;
+      finalGift.x = W * 0.5;
+      finalGift.y = -50;
+      finalGift.targetY = H * 0.72;
+      finalGift.opened = false;
+
+      actStatusPill.textContent = 'Act 5: Final Present Unlocked! 🎁';
+      storyBanner.textContent = 'Tap the glowing Lavender & Gold Present Box to open your letter! 🎁✨';
+      spawnPetalShower(45);
+      playChime(523.25, 1046.5, 0.55);
+    }
+
+    function initAct6SunsetBeachFinale() {
+      act5LetterModal.classList.remove('open');
+      state = 'ACT6_SUNSET_BEACH';
+      stateTimer = 0;
+
+      // Sit Rohan & Charlyn side by side on the sandy shore watching the sunset
+      const shoreY = H * 0.74;
+      rohan.visible = true;
+      rohan.sittingBeach = true;
+      rohan.x = W * 0.5 - 26;
+      rohan.y = shoreY;
+      rohan.facing = 1;
+      rohan.speechText = '';
+
+      charlyn.visible = true;
+      charlyn.sittingBeach = true;
+      charlyn.x = W * 0.5 + 26;
+      charlyn.y = shoreY;
+      charlyn.facing = 1;
+
+      heli.visible = false;
+      cake.visible = false;
+      finalGift.visible = false;
+      fallingPetals = [];
+      spawnPetalShower(32);
+
+      actStatusPill.textContent = 'Act 6: Sunset Beach Finale 🌅';
+      lilyHudPill.style.display = 'none';
+      replayCornerBtn.style.display = 'inline-block';
+      storyBanner.style.display = 'none';
+      playChime(440, 880, 0.65);
+    }
+
+    /* ==========================================================================
+       5. ACT 3 CAKE CEREMONY & ACT 5 PRESENT INTERACTIONS
+       ========================================================================== */
+    act3ActionBtn.addEventListener('click', () => {
+      if (state === 'ACT3_BLOW_CANDLES') {
+        state = 'ACT3_CUT_CAKE';
+        cake.candlesLit = false;
+        spawnSmokePuff(cake.x, cake.y - 34);
+        storyBanner.textContent = 'Make a wish, Charlyn! 🌬️✨ Now tap to cut the cake!';
+        act3ActionBtn.textContent = 'Tap to Cut the Cake 🎂';
+        playChime(523.25, 783.99, 0.35);
+      } else if (state === 'ACT3_CUT_CAKE') {
+        state = 'ACT3_CAKE_DONE';
+        stateTimer = 0;
+        cake.cutProgress = 1;
+        spawnBurst(cake.x, cake.y - 10, '#ffd166', 28);
+        spawnBurst(cake.x, cake.y - 10, '#d8b4fe', 24);
+        spawnPetalShower(35);
+        storyBanner.textContent = 'Yay! Enjoy the capybara meadow or continue to the Lily Garden Game 🪻';
+        act3ActionBtn.textContent = 'Continue to Lily Garden Game →';
+        playChime(659.25, 1046.5, 0.5);
+      } else if (state === 'ACT3_CAKE_DONE') {
+        initAct4LilyCollectorGame();
+      }
+    });
+
+    tossTreatBtn.addEventListener('click', () => {
+      if (state !== 'ACT4_LILY_GAME') return;
+      const tx = charlyn.x + charlyn.facing * 48;
+      const ty = charlyn.y + 8;
+      grassTreats.push({ x: tx, y: ty, life: 5.5 });
+      spawnBurst(tx, ty, '#80ed99', 10);
+      playChime(587.33, 783.99, 0.18);
+    });
+
+    function openFinalPresentLetter() {
+      if (!finalGift.visible || finalGift.opened) return;
+      finalGift.opened = true;
+      state = 'ACT5_MODAL_OPEN';
+      spawnBurst(finalGift.x, finalGift.y - 10, '#ffd166', 35);
+      spawnPetalShower(75);
+      playChime(523.25, 1046.5, 0.6);
+      setTimeout(() => {
+        act5LetterModal.classList.add('open');
+      }, 650);
+    }
+
+    watchSunsetBtn.addEventListener('click', initAct6SunsetBeachFinale);
+
+    /* ==========================================================================
+       6. MOBILE VIRTUAL JOYSTICK, TOUCH DRAG & KEYBOARD CONTROLS
+       ========================================================================== */
+    let joyTouchId = null;
+
+    joystickZone.addEventListener('touchstart', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      const t = e.changedTouches[0];
+      joyTouchId = t.identifier;
+      input.joyActive = true;
+      updateJoystickPosition(t.clientX, t.clientY);
+    }, { passive: false });
+
+    joystickZone.addEventListener('touchmove', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      for (let i = 0; i < e.changedTouches.length; i++) {
+        const t = e.changedTouches[i];
+        if (t.identifier === joyTouchId) {
+          updateJoystickPosition(t.clientX, t.clientY);
+        }
+      }
+    }, { passive: false });
+
+    function resetJoystick() {
+      joyTouchId = null;
+      input.joyActive = false;
+      input.joyX = 0;
+      input.joyY = 0;
+      joystickKnob.style.transform = 'translate(0px, 0px)';
+    }
+
+    joystickZone.addEventListener('touchend', resetJoystick);
+    joystickZone.addEventListener('touchcancel', resetJoystick);
+
+    function updateJoystickPosition(clientX, clientY) {
+      const rect = joystickZone.getBoundingClientRect();
+      const cx = rect.left + rect.width / 2;
+      const cy = rect.top + rect.height / 2;
+      const maxR = 34;
+      let dx = clientX - cx;
+      let dy = clientY - cy;
+      const dist = Math.hypot(dx, dy);
+      if (dist > maxR) {
+        dx = (dx / dist) * maxR;
+        dy = (dy / dist) * maxR;
+      }
+      joystickKnob.style.transform = `translate(${dx}px, ${dy}px)`;
+      input.joyX = dx / maxR;
+      input.joyY = dy / maxR;
+    }
+
+    // Direct Canvas Tap / Drag
+    canvas.addEventListener('touchstart', (e) => {
+      e.preventDefault();
+      const t = e.changedTouches[0];
+      if (state === 'ACT5_GIFT_DROP') {
+        if (Math.hypot(t.clientX - finalGift.x, t.clientY - finalGift.y) < 78) {
+          openFinalPresentLetter();
+        }
+        return;
+      }
+      if (state === 'ACT4_LILY_GAME') {
+        input.dragActive = true;
+        input.dragX = t.clientX;
+        input.dragY = t.clientY;
+      }
+    }, { passive: false });
+
+    canvas.addEventListener('touchmove', (e) => {
+      e.preventDefault();
+      if (state === 'ACT4_LILY_GAME' && input.dragActive) {
+        const t = e.changedTouches[0];
+        input.dragX = t.clientX;
+        input.dragY = t.clientY;
+      }
+    }, { passive: false });
+
+    canvas.addEventListener('touchend', () => { input.dragActive = false; });
+
+    canvas.addEventListener('mousedown', (e) => {
+      if (state === 'ACT5_GIFT_DROP') {
+        if (Math.hypot(e.clientX - finalGift.x, e.clientY - finalGift.y) < 78) {
+          openFinalPresentLetter();
+        }
+        return;
+      }
+      if (state === 'ACT4_LILY_GAME') {
+        input.dragActive = true;
+        input.dragX = e.clientX;
+        input.dragY = e.clientY;
+      }
+    });
+
+    canvas.addEventListener('mousemove', (e) => {
+      if (state === 'ACT4_LILY_GAME' && input.dragActive) {
+        input.dragX = e.clientX;
+        input.dragY = e.clientY;
+      }
+    });
+
+    window.addEventListener('mouseup', () => { input.dragActive = false; });
+
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowUp' || e.key === 'w' || e.key === 'W') input.up = true;
+      if (e.key === 'ArrowDown' || e.key === 's' || e.key === 'S') input.down = true;
+      if (e.key === 'ArrowLeft' || e.key === 'a' || e.key === 'A') input.left = true;
+      if (e.key === 'ArrowRight' || e.key === 'd' || e.key === 'D') input.right = true;
+      if (e.key === ' ') tossTreatBtn.click();
+    });
+    window.addEventListener('keyup', (e) => {
+      if (e.key === 'ArrowUp' || e.key === 'w' || e.key === 'W') input.up = false;
+      if (e.key === 'ArrowDown' || e.key === 's' || e.key === 'S') input.down = false;
+      if (e.key === 'ArrowLeft' || e.key === 'a' || e.key === 'A') input.left = false;
+      if (e.key === 'ArrowRight' || e.key === 'd' || e.key === 'D') input.right = false;
+    });
+
+    /* ==========================================================================
+       7. 60FPS MASTER UPDATE LOOP
+       ========================================================================== */
+    function updateCapybaras(dt, allowNibble) {
+      let activeBubbles = capybaras.filter(c => c.speechTimer > 0).length;
+
+      for (const c of capybaras) {
+        if (c.hop > 0) c.hop -= dt;
+        if (c.speechTimer > 0) {
+          c.speechTimer -= dt;
+          if (c.speechTimer <= 0) c.currentMsg = '';
+        }
+
+        if (c.state === 'walk') {
+          // Check if Charlyn tossed a grass treat nearby
+          let targetTreat = null;
+          for (const gt of grassTreats) {
+            if (Math.hypot(c.x - gt.x, c.y - gt.y) < 160) {
+              targetTreat = gt;
+              break;
+            }
+          }
+
+          if (targetTreat) {
+            const dx = targetTreat.x - c.x;
+            const dy = targetTreat.y - c.y;
+            const dist = Math.hypot(dx, dy) || 1;
+            c.x += (dx / dist) * (c.speed * 1.25) * dt;
+            c.y += (dy / dist) * (c.speed * 1.25) * dt;
+            c.facing = dx >= 0 ? 1 : -1;
+            if (dist < 18) {
+              c.state = 'eat';
+              c.timer = 2.0;
+              c.grassAmount = 1.0;
+              c.grassX = targetTreat.x;
+              c.grassY = targetTreat.y;
+              targetTreat.life = 0;
+            }
+          } else {
+            // Gentle roaming patrol
+            c.x += c.facing * c.speed * dt;
+            if (c.x < 36) { c.x = 36; c.facing = 1; }
+            if (c.x > W - 36) { c.x = W - 36; c.facing = -1; }
+
+            // In Act 4, if capybara gets very close to a lily, it playfully nudges/nibbles it away (spawns a fresh replacement so she never gets stuck!)
+            if (allowNibble) {
+              for (let i = collectibleLilies.length - 1; i >= 0; i--) {
+                const l = collectibleLilies[i];
+                if (Math.hypot(c.x - l.x, c.y - l.y) < 20) {
+                  l.nibbleProgress += dt;
+                  if (l.nibbleProgress > 1.35) {
+                    // Relocate lily with a cute hop so the game always remains winnable!
+                    const meadowTop = H * 0.61;
+                    const meadowBottom = H - 36;
+                    l.x = 40 + Math.random() * (W - 80);
+                    l.y = meadowTop + 18 + Math.random() * (meadowBottom - meadowTop - 32);
+                    l.nibbleProgress = 0;
+                    spawnBurst(c.x, c.y, '#80ed99', 8);
+                  }
+                }
+              }
+            }
+
+            c.timer -= dt;
+            if (c.timer <= 0) {
+              c.state = 'eat';
+              c.timer = 2.0;
+              c.grassAmount = 1.0;
+              c.grassX = c.x + c.facing * 24;
+              c.grassY = c.y + 12;
+            }
+          }
+        } else if (c.state === 'eat') {
+          c.timer -= dt;
+          c.grassAmount = Math.max(0, c.timer / 2.0);
+          if (Math.random() < 0.2) {
+            particles.push({
+              x: c.grassX + (Math.random() - 0.5) * 8,
+              y: c.grassY - 4,
+              vx: (Math.random() - 0.5) * 20,
+              vy: -24,
+              color: '#80ed99',
+              size: 2.5,
+              life: 0.4
+            });
+          }
+
+          if (c.timer <= 0) {
+            c.grassAmount = 0;
+            // Generous 5.0-second display, spaced so at most 1-2 non-overlapping bubbles show at once
+            if (activeBubbles < 1) {
+              c.currentMsg = CAPY_MESSAGES[c.msgIndex % CAPY_MESSAGES.length];
+              c.msgIndex++;
+              c.speechTimer = 5.0;
+              c.hop = 0.35;
+              activeBubbles++;
+            }
+            c.state = 'pause';
+            c.timer = 5.4 + c.id * 1.1;
+          }
+        } else if (c.state === 'pause') {
+          c.timer -= dt;
+          if (c.timer <= 0) {
+            c.state = 'walk';
+            c.timer = 2.4 + Math.random() * 1.4;
+          }
+        }
+      }
+    }
+
+    function update(dt, timeSec) {
+      heli.rotorAngle += dt * (state === 'ACT2_FLIGHT' || state === 'ACT2_LANDING' ? 28 : 5);
+
+      for (let i = particles.length - 1; i >= 0; i--) {
+        const p = particles[i];
+        p.x += p.vx * dt;
+        p.y += p.vy * dt;
+        p.life -= dt;
+        if (p.life <= 0) particles.splice(i, 1);
+      }
+
+      for (let i = grassTreats.length - 1; i >= 0; i--) {
+        grassTreats[i].life -= dt;
+        if (grassTreats[i].life <= 0) grassTreats.splice(i, 1);
+      }
+
+      for (let i = fallingPetals.length - 1; i >= 0; i--) {
+        const fp = fallingPetals[i];
+        fp.y += fp.vy * dt;
+        fp.x += Math.sin(timeSec * 2.1 + fp.sway) * 30 * dt;
+        fp.rot += fp.rotSpd * dt;
+        if (fp.y > H + 30) {
+          if (state === 'ACT6_SUNSET_BEACH') {
+            fp.y = -15;
+            fp.x = Math.random() * W;
+          } else {
+            fallingPetals.splice(i, 1);
+          }
+        }
+      }
+
+      if (rohan.speechTimer > 0) {
+        rohan.speechTimer -= dt;
+        if (rohan.speechTimer <= 0) rohan.speechText = '';
+      }
+
+      // ACT 2A: BOARDING AT MANILA AIRPORT
+      if (state === 'ACT2_BOARDING') {
+        stateTimer += dt;
+        if (stateTimer < 1.4) {
+          charlyn.x += 58 * dt;
+          charlyn.walkPhase += dt * 11;
+        } else if (stateTimer < 1.9) {
+          charlyn.visible = false;
+          charlyn.inHeli = true;
+          storyBanner.textContent = 'Flying from Manila to India... 🇵🇭 ✈️ 🇮🇳';
+        } else if (stateTimer < 3.2) {
+          heli.y -= 92 * dt;
+          heli.tilt = 0.12;
+        } else {
+          state = 'ACT2_FLIGHT';
+          stateTimer = 0;
+          actStatusPill.textContent = 'Act 2: Flying from Manila to India ✈️';
+          storyBanner.textContent = 'Flying from Manila to India... crossing clouds & mountain peaks ✨';
+        }
+        return;
+      }
+
+      // ACT 2B: SCENIC FLIGHT ACROSS CLOUDS & MOUNTAIN PEAKS
+      if (state === 'ACT2_FLIGHT') {
+        stateTimer += dt;
+        for (const c of bgClouds) {
+          c.x -= c.speed * 2.4 * dt;
+          if (c.x < -110) c.x = W + 90;
+        }
+        heli.x = Math.min(W * 0.44, heli.x + 22 * dt);
+        heli.y = H * 0.35 + Math.sin(timeSec * 3) * 14;
+        heli.tilt = 0.14 + Math.cos(timeSec * 3) * 0.04;
+
+        if (stateTimer >= 4.2) {
+          state = 'ACT2_LANDING';
+          stateTimer = 0;
+          initIndiaValleyDecor();
+          actStatusPill.textContent = "India's Highest Lily Garden 🇮🇳";
+          storyBanner.textContent = "Landing at INDIA'S HIGHEST LILY GARDEN — 2.6 Million (26 Lakh) Blooming Lilies 🪻";
+          playChime(523.25, 783.99, 0.4);
+        }
+        return;
+      }
+
+      // ACT 2C: HELICOPTER LANDING ON HELIPAD
+      if (state === 'ACT2_LANDING') {
+        stateTimer += dt;
+        const groundY = H * 0.65;
+        const targetX = Math.max(74, W * 0.17);
+        const targetY = groundY - 12;
+        heli.x += (targetX - heli.x) * Math.min(1, dt * 3);
+        heli.y += (targetY - heli.y) * Math.min(1, dt * 2.8);
+        heli.tilt *= 0.88;
+
+        if (stateTimer >= 2.2) {
+          initAct3WelcomeAndMeadow();
+        }
+        return;
+      }
+
+      // ACT 3A: CHARLYN WALKS TO ROHAN
+      if (state === 'ACT3_WALK_TO_ROHAN') {
+        updateCapybaras(dt, false);
+        const meetX = rohan.x - 42;
+        if (charlyn.x < meetX) {
+          charlyn.x += 78 * dt;
+          charlyn.walkPhase += dt * 11;
+          charlyn.facing = 1;
+        } else {
+          charlyn.x = meetX;
+          state = 'ACT3_DANCE';
+          stateTimer = 0;
+          rohan.speechText = 'Happy Birthday Charlyn! 🎂✨';
+          rohan.speechTimer = 8.0;
+          storyBanner.textContent = 'Rohan grabs Charlyn\'s hand for a joyful birthday spin! 💃🕺';
+          spawnBurst((charlyn.x + rohan.x) * 0.5, charlyn.y - 20, '#ffd166', 22);
+          playChime(587.33, 880, 0.45);
+        }
+        return;
+      }
+
+      // ACT 3B: JOYFUL SPIN & TWIRL TOGETHER
+      if (state === 'ACT3_DANCE') {
+        updateCapybaras(dt, false);
+        stateTimer += dt;
+        const centerX = (charlyn.x + rohan.x) * 0.5;
+        const danceAngle = stateTimer * Math.PI * 1.6;
+        charlyn.x = centerX - Math.cos(danceAngle) * 24;
+        rohan.x = centerX + Math.cos(danceAngle) * 24;
+        charlyn.spinAngle = Math.sin(danceAngle) * 0.16;
+        rohan.spinAngle = -Math.sin(danceAngle) * 0.16;
+        charlyn.walkPhase += dt * 12;
+        rohan.walkPhase += dt * 12;
+
+        if (stateTimer >= 3.2) {
+          charlyn.x = W * 0.36;
+          rohan.x = W * 0.64;
+          charlyn.facing = 1;
+          rohan.facing = -1;
+          charlyn.spinAngle = 0;
+          rohan.spinAngle = 0;
+
+          cake.visible = true;
+          cake.x = W * 0.5;
+          cake.y = charlyn.y + 8;
+          cake.candlesLit = true;
+          cake.cutProgress = 0;
+
+          state = 'ACT3_BLOW_CANDLES';
+          storyBanner.textContent = 'A lavender & gold birthday cake appeared! Blow out the candles 🎂';
+          act3ActionBtn.textContent = 'Tap to Blow Out the Candles 🌬️';
+          act3ActionBtn.classList.add('visible');
+          spawnBurst(cake.x, cake.y - 16, '#ffd166', 20);
+        }
+        return;
+      }
+
+      // ACT 3C: CAKE CEREMONY & CAPYBARA MEADOW
+      if (state === 'ACT3_BLOW_CANDLES' || state === 'ACT3_CUT_CAKE' || state === 'ACT3_CAKE_DONE') {
+        updateCapybaras(dt, false);
+        return;
+      }
+
+      // ACT 4: LILY GARDEN COLLECTOR MINI-GAME
+      if (state === 'ACT4_LILY_GAME') {
+        const meadowTop = H * 0.60;
+        const meadowBottom = H - 30;
+        const speed = 165;
+
+        let vx = 0;
+        let vy = 0;
+        if (input.left) vx -= 1;
+        if (input.right) vx += 1;
+        if (input.up) vy -= 1;
+        if (input.down) vy += 1;
+
+        if (input.joyActive && (Math.abs(input.joyX) > 0.08 || Math.abs(input.joyY) > 0.08)) {
+          vx = input.joyX;
+          vy = input.joyY;
+        } else if (input.dragActive) {
+          const dx = input.dragX - charlyn.x;
+          const dy = input.dragY - charlyn.y;
+          const dist = Math.hypot(dx, dy);
+          if (dist > 8) {
+            vx = dx / dist;
+            vy = dy / dist;
+          }
+        } else if (vx !== 0 || vy !== 0) {
+          const len = Math.hypot(vx, vy);
+          vx /= len;
+          vy /= len;
+        }
+
+        if (vx !== 0 || vy !== 0) {
+          charlyn.x = Math.max(26, Math.min(W - 26, charlyn.x + vx * speed * dt));
+          charlyn.y = Math.max(meadowTop, Math.min(meadowBottom, charlyn.y + vy * speed * dt));
+          charlyn.walkPhase += dt * 13;
+          if (vx < -0.1) charlyn.facing = -1;
+          if (vx > 0.1) charlyn.facing = 1;
+        }
+
+        // Collect Golden & Lavender Lilies
+        for (let i = collectibleLilies.length - 1; i >= 0; i--) {
+          const l = collectibleLilies[i];
+          if (Math.hypot(charlyn.x - l.x, charlyn.y - l.y) < 35) {
+            if (l.isGolden) {
+              goldenCollected++;
+              spawnBurst(l.x, l.y, '#ffd166', 22);
+              playChime(659.25, 1046.5, 0.28);
+            } else {
+              normalCollected++;
+              spawnBurst(l.x, l.y, '#d8b4fe', 14);
+              playChime(523.25, 783.99, 0.22);
+            }
+            updateLilyHud();
+            collectibleLilies.splice(i, 1);
+
+            if (goldenCollected >= TARGET_GOLDEN && normalCollected >= TARGET_NORMAL) {
+              initAct5PresentDrop();
+              return;
+            }
+          }
+        }
+
+        updateCapybaras(dt, true);
+        return;
+      }
+
+      // ACT 5: PRESENT BOX DROP
+      if (state === 'ACT5_GIFT_DROP') {
+        updateCapybaras(dt, false);
+        if (finalGift.y < finalGift.targetY) {
+          finalGift.y += 180 * dt;
+          if (finalGift.y >= finalGift.targetY) {
+            finalGift.y = finalGift.targetY;
+            spawnBurst(finalGift.x, finalGift.y, '#ffd166', 24);
+          }
+        }
+      }
+    }
+
+    /* ==========================================================================
+       8. 2D CANVAS RENDERERS (ROBLOX AVATARS, HELI, LILIES, CAPYBARAS, BEACH)
+       ========================================================================== */
+    function drawNametag(x, y, name, accentColor = '#ffd166') {
+      ctx.save();
+      ctx.font = '800 11.5px "Plus Jakarta Sans", sans-serif';
+      const tw = ctx.measureText(name).width;
+      const bw = tw + 18;
+      const bh = 22;
+
+      ctx.fillStyle = 'rgba(13, 7, 24, 0.86)';
+      ctx.strokeStyle = accentColor;
+      ctx.lineWidth = 1.6;
+      ctx.beginPath();
+      ctx.roundRect(x - bw / 2, y - bh, bw, bh, 11);
+      ctx.fill();
+      ctx.stroke();
+
+      ctx.fillStyle = '#ffffff';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText(name, x, y - bh / 2 + 0.5);
+      ctx.restore();
+    }
+
+    function drawRobloxCharlyn(x, y, scale = 1, walkPhase = 0, facing = 1, sitting = false, spin = 0, showTag = true) {
+      ctx.save();
+      ctx.translate(x, y);
+      ctx.rotate(spin);
+
+      if (showTag) {
+        drawNametag(0, sitting ? -32 * scale : -34 * scale, 'Charlyn', '#d8b4fe');
+      }
+
+      ctx.scale(scale * facing, scale);
+
+      if (sitting) {
+        // Sitting legs extended forward on beach sand
+        ctx.fillStyle = '#251a3d';
+        ctx.beginPath();
+        ctx.roundRect(4, 6, 18, 7, 3);
+        ctx.fill();
+      } else {
+        ctx.fillStyle = 'rgba(12, 7, 22, 0.35)';
+        ctx.beginPath();
+        ctx.ellipse(0, 27, 15, 5, 0, 0, Math.PI * 2);
+        ctx.fill();
+
+        const swing = Math.sin(walkPhase) * 4;
+        ctx.fillStyle = '#251a3d';
+        ctx.fillRect(-9, 10 + swing * 0.4, 8, 16);
+        ctx.fillRect(1, 10 - swing * 0.4, 8, 16);
+      }
+
+      // Lavender Hoodie Torso
+      ctx.fillStyle = '#b57edc';
+      ctx.strokeStyle = '#3d1e6d';
+      ctx.lineWidth = 1.6;
+      ctx.beginPath();
+      ctx.roundRect(-11, -6, 22, 18, 3);
+      ctx.fill();
+      ctx.stroke();
+
+      ctx.fillStyle = '#9b5de5';
+      ctx.fillRect(-7, 4, 14, 6);
+
+      // Arms
+      ctx.fillStyle = '#f7cba8';
+      ctx.strokeStyle = '#3d1e6d';
+      ctx.lineWidth = 1.4;
+      if (sitting) {
+        ctx.fillRect(6, -2, 11, 5);
+        ctx.strokeRect(6, -2, 11, 5);
+      } else {
+        ctx.fillRect(-16, -5, 5, 14);
+        ctx.strokeRect(-16, -5, 5, 14);
+        ctx.fillRect(11, -5, 5, 14);
+        ctx.strokeRect(11, -5, 5, 14);
+      }
+
+      // Roblox Head
+      ctx.fillStyle = '#f7cba8';
+      ctx.strokeStyle = '#3d1e6d';
+      ctx.lineWidth = 1.6;
+      ctx.beginPath();
+      ctx.roundRect(-10, -24, 20, 18, 6);
+      ctx.fill();
+      ctx.stroke();
+
+      // Long Hair
+      ctx.fillStyle = '#4a2c18';
+      ctx.beginPath();
+      ctx.roundRect(-12, -26, 24, 10, 5);
+      ctx.fill();
+      ctx.fillRect(-12, -22, 5, 22);
+      ctx.fillRect(7, -22, 5, 16);
+
+      // Eyes, Blush & Smile
+      ctx.fillStyle = '#1d1433';
+      ctx.beginPath();
+      ctx.arc(-3.5, -15, 1.8, 0, Math.PI * 2);
+      ctx.arc(4.5, -15, 1.8, 0, Math.PI * 2);
+      ctx.fill();
+
+      ctx.fillStyle = '#f28ca8';
+      ctx.beginPath();
+      ctx.ellipse(-6, -12, 2.5, 1.4, 0, 0, Math.PI * 2);
+      ctx.ellipse(6.5, -12, 2.5, 1.4, 0, 0, Math.PI * 2);
+      ctx.fill();
+
+      ctx.strokeStyle = '#1d1433';
+      ctx.lineWidth = 1.6;
+      ctx.lineCap = 'round';
+      ctx.beginPath();
+      ctx.arc(0.5, -12.5, 3.2, 0.15 * Math.PI, 0.85 * Math.PI);
+      ctx.stroke();
+
+      ctx.restore();
+    }
+
+    function drawRobloxRohan(x, y, scale = 1, walkPhase = 0, facing = -1, sitting = false, spin = 0) {
+      ctx.save();
+      ctx.translate(x, y);
+      ctx.rotate(spin);
+
+      drawNametag(0, sitting ? -32 * scale : -34 * scale, 'Rohan', '#ffd166');
+
+      ctx.scale(scale * facing, scale);
+
+      if (sitting) {
+        ctx.fillStyle = '#1d1433';
+        ctx.beginPath();
+        ctx.roundRect(4, 6, 18, 7, 3);
+        ctx.fill();
+      } else {
+        ctx.fillStyle = 'rgba(12, 7, 22, 0.35)';
+        ctx.beginPath();
+        ctx.ellipse(0, 27, 15, 5, 0, 0, Math.PI * 2);
+        ctx.fill();
+
+        const swing = Math.sin(walkPhase) * 4;
+        ctx.fillStyle = '#1d1433';
+        ctx.fillRect(-9, 10 + swing * 0.4, 8, 16);
+        ctx.fillRect(1, 10 - swing * 0.4, 8, 16);
+      }
+
+      // Midnight Indigo & Gold Jacket
+      ctx.fillStyle = '#2d184f';
+      ctx.strokeStyle = '#ffd166';
+      ctx.lineWidth = 1.5;
+      ctx.beginPath();
+      ctx.roundRect(-11, -6, 22, 18, 3);
+      ctx.fill();
+      ctx.stroke();
+
+      ctx.fillStyle = '#f8f2ff';
+      ctx.fillRect(-3, -5, 6, 16);
+
+      // Arms
+      ctx.fillStyle = '#e8b48a';
+      ctx.strokeStyle = '#1d1433';
+      ctx.lineWidth = 1.4;
+      if (sitting) {
+        ctx.fillRect(6, -2, 11, 5);
+        ctx.strokeRect(6, -2, 11, 5);
+      } else {
+        ctx.fillRect(-16, -5, 5, 14);
+        ctx.strokeRect(-16, -5, 5, 14);
+        ctx.fillRect(11, -5, 5, 14);
+        ctx.strokeRect(11, -5, 5, 14);
+      }
+
+      // Roblox Head
+      ctx.fillStyle = '#e8b48a';
+      ctx.strokeStyle = '#1d1433';
+      ctx.lineWidth = 1.6;
+      ctx.beginPath();
+      ctx.roundRect(-10, -24, 20, 18, 6);
+      ctx.fill();
+      ctx.stroke();
+
+      // Stylish Dark Hair
+      ctx.fillStyle = '#1c1326';
+      ctx.beginPath();
+      ctx.roundRect(-11, -27, 22, 9, 4);
+      ctx.fill();
+      ctx.fillRect(-11, -23, 4, 9);
+
+      // Eyes & Smile
+      ctx.fillStyle = '#1d1433';
+      ctx.beginPath();
+      ctx.arc(-3.5, -15, 1.8, 0, Math.PI * 2);
+      ctx.arc(4.5, -15, 1.8, 0, Math.PI * 2);
+      ctx.fill();
+
+      ctx.strokeStyle = '#1d1433';
+      ctx.lineWidth = 1.6;
+      ctx.lineCap = 'round';
+      ctx.beginPath();
+      ctx.arc(0.5, -12.5, 3.2, 0.15 * Math.PI, 0.85 * Math.PI);
+      ctx.stroke();
+
+      ctx.restore();
+    }
+
+    function drawHelicopter(x, y, tilt, rotorAngle, charlynInside) {
+      ctx.save();
+      ctx.translate(x, y);
+      ctx.rotate(tilt);
+
+      // Skids
+      ctx.strokeStyle = '#ffd166';
+      ctx.lineWidth = 3.2;
+      ctx.lineCap = 'round';
+      ctx.beginPath();
+      ctx.moveTo(-24, 22); ctx.lineTo(-16, 32);
+      ctx.moveTo(22, 22); ctx.lineTo(16, 32);
+      ctx.moveTo(-34, 32); ctx.lineTo(34, 32);
+      ctx.stroke();
+
+      // Tail Boom & Fin
+      ctx.fillStyle = '#8e4ec6';
+      ctx.beginPath();
+      ctx.moveTo(-28, -4);
+      ctx.lineTo(-78, -10);
+      ctx.lineTo(-78, 2);
+      ctx.lineTo(-28, 10);
+      ctx.closePath();
+      ctx.fill();
+
+      ctx.fillStyle = '#ffd166';
+      ctx.beginPath();
+      ctx.moveTo(-72, -22);
+      ctx.lineTo(-84, -22);
+      ctx.lineTo(-78, 6);
+      ctx.lineTo(-68, 6);
+      ctx.closePath();
+      ctx.fill();
+
+      ctx.save();
+      ctx.translate(-78, -8);
+      ctx.rotate(rotorAngle * 1.4);
+      ctx.fillStyle = '#f8f2ff';
+      ctx.fillRect(-2, -13, 4, 26);
+      ctx.restore();
+
+      // Main Lavender & White Body
+      ctx.fillStyle = '#9b5de5';
+      ctx.strokeStyle = '#ffffff';
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.ellipse(0, 2, 46, 25, 0, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.stroke();
+
+      ctx.fillStyle = '#f8f2ff';
+      ctx.fillRect(-36, 6, 68, 5);
+
+      // Glass Cockpit with Charlyn Sitting Inside
+      ctx.save();
+      ctx.beginPath();
+      ctx.ellipse(16, -2, 26, 18, 0, -Math.PI * 0.55, Math.PI * 0.45);
+      ctx.closePath();
+      ctx.fillStyle = 'rgba(224, 242, 255, 0.36)';
+      ctx.fill();
+      ctx.strokeStyle = '#ffd166';
+      ctx.lineWidth = 2;
+      ctx.stroke();
+
+      if (charlynInside) {
+        ctx.clip();
+        drawRobloxCharlyn(13, 7, 0.85, 0, 1, true, 0, false);
+      }
+      ctx.restore();
+
+      if (charlynInside) {
+        drawNametag(15, -38, 'Charlyn', '#d8b4fe');
+      }
+
+      // Main Rotor
+      ctx.fillStyle = '#ffd166';
+      ctx.fillRect(-4, -31, 8, 9);
+
+      const bladeSpan = 64 * Math.abs(Math.cos(rotorAngle)) + 16;
+      ctx.fillStyle = 'rgba(248, 242, 255, 0.85)';
+      ctx.beginPath();
+      ctx.roundRect(-bladeSpan, -34, bladeSpan * 2, 4.5, 2);
+      ctx.fill();
+
+      ctx.restore();
+    }
+
+    function drawLilyFlower(x, y, size, palette, time, swayOffset = 0, isGolden = false) {
+      ctx.save();
+      ctx.translate(x, y);
+
+      if (isGolden) {
+        const pulse = 23 + Math.sin(time * 5 + swayOffset) * 5;
+        const glow = ctx.createRadialGradient(0, 0, 2, 0, 0, pulse);
+        glow.addColorStop(0, 'rgba(255, 209, 102, 0.88)');
+        glow.addColorStop(1, 'rgba(255, 209, 102, 0)');
+        ctx.fillStyle = glow;
+        ctx.beginPath();
+        ctx.arc(0, 0, pulse, 0, Math.PI * 2);
+        ctx.fill();
+      }
+
+      const sway = Math.sin(time * 2.2 + swayOffset) * 0.14;
+      ctx.rotate(sway);
+
+      ctx.strokeStyle = '#386641';
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.moveTo(0, 0);
+      ctx.lineTo(0, size * 1.1);
+      ctx.stroke();
+
+      for (let i = 0; i < 6; i++) {
+        ctx.save();
+        ctx.rotate((i * Math.PI) / 3);
+        const grad = ctx.createLinearGradient(0, 0, 0, -size);
+        grad.addColorStop(0, palette[1]);
+        grad.addColorStop(1, palette[0]);
+        ctx.fillStyle = grad;
+        ctx.beginPath();
+        ctx.moveTo(0, 0);
+        ctx.quadraticCurveTo(size * 0.38, -size * 0.5, 0, -size);
+        ctx.quadraticCurveTo(-size * 0.38, -size * 0.5, 0, 0);
+        ctx.fill();
+        ctx.restore();
+      }
+
+      ctx.fillStyle = isGolden ? '#ffffff' : '#ffd166';
+      ctx.beginPath();
+      ctx.arc(0, 0, size * 0.22, 0, Math.PI * 2);
+      ctx.fill();
+
+      ctx.restore();
+    }
+
+    function drawBirthdayCake(x, y, candlesLit, cutProgress, time) {
+      ctx.save();
+      ctx.translate(x, y);
+
+      const glow = ctx.createRadialGradient(0, -10, 6, 0, -10, 60);
+      glow.addColorStop(0, 'rgba(255, 209, 102, 0.55)');
+      glow.addColorStop(1, 'rgba(255, 209, 102, 0)');
+      ctx.fillStyle = glow;
+      ctx.beginPath();
+      ctx.arc(0, -10, 60, 0, Math.PI * 2);
+      ctx.fill();
+
+      ctx.fillStyle = '#d8b4fe';
+      ctx.beginPath();
+      ctx.ellipse(0, 16, 36, 8, 0, 0, Math.PI * 2);
+      ctx.fill();
+
+      const splitOffset = cutProgress * 6;
+      [-1, 1].forEach((side) => {
+        ctx.save();
+        ctx.translate(side * splitOffset, 0);
+
+        ctx.fillStyle = '#b57edc';
+        ctx.beginPath();
+        ctx.roundRect(side === -1 ? -28 : 0, -4, 28, 18, 4);
+        ctx.fill();
+
+        ctx.fillStyle = '#fcf8ff';
+        ctx.fillRect(side === -1 ? -28 : 0, -4, 28, 5);
+
+        ctx.fillStyle = '#9b5de5';
+        ctx.beginPath();
+        ctx.roundRect(side === -1 ? -20 : 0, -18, 20, 14, 4);
+        ctx.fill();
+
+        ctx.fillStyle = '#ffd166';
+        ctx.fillRect(side === -1 ? -20 : 0, -18, 20, 4);
+        ctx.restore();
+      });
+
+      [-10, 0, 10].forEach((cx) => {
+        ctx.fillStyle = '#fff5d6';
+        ctx.fillRect(cx - 2, -29, 4, 11);
+        if (candlesLit) {
+          const flicker = Math.sin(time * 18 + cx) * 1.4;
+          ctx.fillStyle = '#ff9f1c';
+          ctx.beginPath();
+          ctx.ellipse(cx + flicker * 0.4, -34, 3.2, 5.5, 0, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.fillStyle = '#fff3b0';
+          ctx.beginPath();
+          ctx.arc(cx, -33, 1.8, 0, Math.PI * 2);
+          ctx.fill();
+        }
+      });
+
+      ctx.restore();
+    }
+
+    function drawCapybara(c, time) {
+      if (c.grassAmount > 0.05) {
+        ctx.save();
+        ctx.translate(c.grassX, c.grassY);
+        ctx.scale(c.grassAmount, c.grassAmount);
+        ctx.strokeStyle = '#80ed99';
+        ctx.lineWidth = 3;
+        ctx.lineCap = 'round';
+        ctx.beginPath();
+        ctx.moveTo(-6, 0); ctx.lineTo(-10, -13);
+        ctx.moveTo(0, 0);  ctx.lineTo(0, -16);
+        ctx.moveTo(6, 0);  ctx.lineTo(10, -13);
+        ctx.stroke();
+        ctx.restore();
+      }
+
+      const hopOffset = c.hop > 0 ? -Math.sin((c.hop / 0.35) * Math.PI) * 11 : 0;
+
+      ctx.save();
+      ctx.translate(c.x, c.y + hopOffset);
+      ctx.scale(c.facing * 0.9, 0.9);
+
+      const walkBob = c.state === 'walk' ? Math.sin(time * 11) * 2.2 : 0;
+      const eatTilt = c.state === 'eat' ? 0.36 : 0;
+      const munch = c.state === 'eat' ? Math.sin(time * 20) * 2 : 0;
+
+      ctx.fillStyle = 'rgba(12, 7, 22, 0.35)';
+      ctx.beginPath();
+      ctx.ellipse(0, 19, 24, 7, 0, 0, Math.PI * 2);
+      ctx.fill();
+
+      ctx.fillStyle = '#754925';
+      const stride = c.state === 'walk' ? Math.sin(time * 11) * 4 : 0;
+      ctx.beginPath();
+      ctx.roundRect(-15 + stride, 9, 7.5, 11, 3.5);
+      ctx.roundRect(-4 - stride, 10, 7.5, 10, 3.5);
+      ctx.roundRect(7 - stride, 9, 7.5, 11, 3.5);
+      ctx.fill();
+
+      ctx.fillStyle = '#b88152';
+      ctx.beginPath();
+      ctx.ellipse(-2, 2 + walkBob, 24, 16, 0, 0, Math.PI * 2);
+      ctx.fill();
+
+      ctx.save();
+      ctx.translate(17, -5 + walkBob);
+      ctx.rotate(eatTilt);
+      if (c.state === 'eat') ctx.translate(2, 4 + munch);
+
+      ctx.fillStyle = '#754925';
+      ctx.beginPath();
+      ctx.ellipse(-6, -12, 4.5, 6, -0.3, 0, Math.PI * 2);
+      ctx.fill();
+
+      ctx.fillStyle = '#c48d5e';
+      ctx.beginPath();
+      ctx.roundRect(-11, -11, 28, 21, 10);
+      ctx.fill();
+
+      ctx.fillStyle = '#875731';
+      ctx.beginPath();
+      ctx.roundRect(4, -5, 13, 13, 6);
+      ctx.fill();
+
+      ctx.fillStyle = '#2e1808';
+      ctx.beginPath();
+      ctx.arc(12, -2, 1.5, 0, Math.PI * 2);
+      ctx.fill();
+
+      ctx.strokeStyle = '#2e1808';
+      ctx.lineWidth = 2;
+      ctx.lineCap = 'round';
+      ctx.beginPath();
+      ctx.moveTo(-2, -4);
+      ctx.lineTo(3, -4);
+      ctx.stroke();
+
+      ctx.fillStyle = '#ffb703';
+      ctx.beginPath();
+      ctx.arc(0, -13, 4.2, 0, Math.PI * 2);
+      ctx.fill();
+
+      ctx.restore();
+      ctx.restore();
+    }
+
+    function drawSpeechBubble(x, y, text) {
+      ctx.save();
+      ctx.font = '700 12px "Plus Jakarta Sans", sans-serif';
+      const tw = ctx.measureText(text).width;
+      const bw = tw + 22;
+      const bh = 28;
+
+      const clampedX = Math.max(bw / 2 + 8, Math.min(W - bw / 2 - 8, x));
+      const topY = Math.max(82, y - bh);
+
+      ctx.fillStyle = 'rgba(255, 250, 255, 0.97)';
+      ctx.strokeStyle = '#b57edc';
+      ctx.lineWidth = 2;
+      ctx.shadowColor = 'rgba(12, 7, 22, 0.45)';
+      ctx.shadowBlur = 10;
+      ctx.shadowOffsetY = 4;
+
+      ctx.beginPath();
+      ctx.roundRect(clampedX - bw / 2, topY, bw, bh, 14);
+      ctx.fill();
+      ctx.stroke();
+
+      ctx.shadowBlur = 0;
+      ctx.shadowOffsetY = 0;
+      const px = Math.max(clampedX - bw / 2 + 12, Math.min(clampedX + bw / 2 - 12, x));
+      ctx.beginPath();
+      ctx.moveTo(px - 5, topY + bh - 1);
+      ctx.lineTo(px + 5, topY + bh - 1);
+      ctx.lineTo(px, topY + bh + 6);
+      ctx.closePath();
+      ctx.fill();
+
+      ctx.fillStyle = '#1d1433';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText(text, clampedX, topY + bh / 2 + 0.5);
+      ctx.restore();
+    }
+
+    function drawFinalPresentBox(x, y, opened, time) {
+      const bounce = !opened ? Math.sin(time * 4) * 4 : 0;
+      ctx.save();
+      ctx.translate(x, y + bounce);
+
+      const glow = ctx.createRadialGradient(0, 0, 6, 0, 0, 64);
+      glow.addColorStop(0, 'rgba(255, 209, 102, 0.75)');
+      glow.addColorStop(1, 'rgba(255, 209, 102, 0)');
+      ctx.fillStyle = glow;
+      ctx.beginPath();
+      ctx.arc(0, 0, 64, 0, Math.PI * 2);
+      ctx.fill();
+
+      ctx.fillStyle = '#9b5de5';
+      ctx.beginPath();
+      ctx.roundRect(-26, -18, 52, 38, 8);
+      ctx.fill();
+
+      ctx.fillStyle = '#ffd166';
+      ctx.fillRect(-5, -18, 10, 38);
+
+      ctx.save();
+      if (opened) {
+        ctx.translate(0, -24);
+        ctx.rotate(-0.32);
+      }
+      ctx.fillStyle = '#b57edc';
+      ctx.beginPath();
+      ctx.roundRect(-29, -26, 58, 11, 4);
+      ctx.fill();
+      ctx.fillStyle = '#ffd166';
+      ctx.fillRect(-5, -26, 10, 11);
+
+      ctx.strokeStyle = '#ffd166';
+      ctx.lineWidth = 3.6;
+      ctx.beginPath();
+      ctx.ellipse(-9, -30, 8, 4.5, -0.35, 0, Math.PI * 2);
+      ctx.ellipse(9, -30, 8, 4.5, 0.35, 0, Math.PI * 2);
+      ctx.stroke();
+      ctx.restore();
+
+      ctx.restore();
+    }
+
+    function drawSunsetBeachScene(timeSec) {
+      const horizonY = H * 0.56;
+
+      // Golden-Hour Amber, Violet & Lavender Sunset Sky
+      const skyGrad = ctx.createLinearGradient(0, 0, 0, horizonY);
+      skyGrad.addColorStop(0, '#1d1038');
+      skyGrad.addColorStop(0.32, '#5c2a82');
+      skyGrad.addColorStop(0.65, '#c77dff');
+      skyGrad.addColorStop(0.86, '#ff9e6d');
+      skyGrad.addColorStop(1, '#ffd166');
+      ctx.fillStyle = skyGrad;
+      ctx.fillRect(0, 0, W, horizonY);
+
+      // Glowing Setting Sun on Horizon
+      const sunX = W * 0.5;
+      const sunY = horizonY - 12;
+      const sunHalo = ctx.createRadialGradient(sunX, sunY, 12, sunX, sunY, 150);
+      sunHalo.addColorStop(0, 'rgba(255, 245, 200, 0.95)');
+      sunHalo.addColorStop(0.35, 'rgba(255, 209, 102, 0.45)');
+      sunHalo.addColorStop(1, 'rgba(255, 158, 109, 0)');
+      ctx.fillStyle = sunHalo;
+      ctx.beginPath();
+      ctx.arc(sunX, sunY, 150, 0, Math.PI * 2);
+      ctx.fill();
+
+      ctx.fillStyle = '#fff5cc';
+      ctx.beginPath();
+      ctx.arc(sunX, sunY, 34, 0, Math.PI * 2);
+      ctx.fill();
+
+      // Animated Rolling Ocean Waves
+      const shoreY = H * 0.72;
+      const seaGrad = ctx.createLinearGradient(0, horizonY, 0, shoreY);
+      seaGrad.addColorStop(0, '#46227a');
+      seaGrad.addColorStop(0.5, '#2b184f');
+      seaGrad.addColorStop(1, '#1c1036');
+      ctx.fillStyle = seaGrad;
+      ctx.fillRect(0, horizonY, W, shoreY - horizonY);
+
+      // Shimmering Sunset Sun Reflection on Water
+      for (let ry = horizonY + 8; ry < shoreY - 6; ry += 10) {
+        const progress = (ry - horizonY) / (shoreY - horizonY);
+        const shimmerW = 36 + progress * 90 + Math.sin(timeSec * 3 + ry) * 14;
+        ctx.fillStyle = 'rgba(255, 209, 102, 0.35)';
+        ctx.beginPath();
+        ctx.roundRect(sunX - shimmerW / 2, ry, shimmerW, 3.5, 2);
+        ctx.fill();
+      }
+
+      // Gentle Shore Foam Wave
+      const waveOffset = Math.sin(timeSec * 2) * 5;
+      ctx.fillStyle = 'rgba(248, 242, 255, 0.38)';
+      ctx.beginPath();
+      ctx.moveTo(0, shoreY + waveOffset);
+      for (let wx = 0; wx <= W; wx += 40) {
+        ctx.quadraticCurveTo(wx + 20, shoreY + waveOffset - 4, wx + 40, shoreY + waveOffset);
+      }
+      ctx.lineTo(W, shoreY + 14);
+      ctx.lineTo(0, shoreY + 14);
+      ctx.closePath();
+      ctx.fill();
+
+      // Warm Sandy Beach
+      const sandGrad = ctx.createLinearGradient(0, shoreY, 0, H);
+      sandGrad.addColorStop(0, '#d4a373');
+      sandGrad.addColorStop(1, '#9c6644');
+      ctx.fillStyle = sandGrad;
+      ctx.fillRect(0, shoreY + 4, W, H - shoreY);
+
+      // Left & Right Palm Silhouettes
+      const drawPalm = (px, py, flip) => {
+        ctx.save();
+        ctx.translate(px, py);
+        ctx.scale(flip, 1);
+        ctx.strokeStyle = '#190d2e';
+        ctx.lineWidth = 8;
+        ctx.lineCap = 'round';
+        ctx.beginPath();
+        ctx.moveTo(0, 0);
+        ctx.quadraticCurveTo(14, -65, 28, -125);
+        ctx.stroke();
+
+        ctx.fillStyle = '#190d2e';
+        [-0.7, -0.2, 0.3, 0.8, 2.5, 3.0].forEach((ang) => {
+          ctx.save();
+          ctx.translate(28, -125);
+          ctx.rotate(ang);
+          ctx.beginPath();
+          ctx.ellipse(24, 0, 26, 7, 0, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.restore();
+        });
+        ctx.restore();
+      };
+      drawPalm(22, shoreY + 36, 1);
+      drawPalm(W - 22, shoreY + 36, -1);
+
+      // Both Rohan & Charlyn sitting side-by-side watching the sunset
+      drawRobloxRohan(rohan.x, rohan.y, 1.05, 0, 1, true, 0);
+      drawRobloxCharlyn(charlyn.x, charlyn.y, 1.05, 0, 1, true, 0, true);
+
+      // Glowing Cloud Banner Behind/Above Their Heads
+      const bannerW = Math.min(W - 24, 385);
+      const bannerH = 62;
+      const bx = W * 0.5 - bannerW / 2;
+      const by = Math.max(66, rohan.y - 142) + Math.sin(timeSec * 2) * 3;
+
+      ctx.save();
+      ctx.fillStyle = 'rgba(20, 11, 38, 0.86)';
+      ctx.strokeStyle = '#ffd166';
+      ctx.lineWidth = 2;
+      ctx.shadowColor = 'rgba(255, 209, 102, 0.45)';
+      ctx.shadowBlur = 18;
+      ctx.beginPath();
+      ctx.roundRect(bx, by, bannerW, bannerH, 20);
+      ctx.fill();
+      ctx.stroke();
+
+      ctx.shadowBlur = 0;
+      ctx.fillStyle = '#ffd166';
+      ctx.font = '800 13.5px "Plus Jakarta Sans", sans-serif';
+      ctx.textAlign = 'center';
+      ctx.fillText('Happy birthday Charlyn,', W * 0.5, by + 24);
+      ctx.fillStyle = '#f8f2ff';
+      ctx.font = '700 13px "Plus Jakarta Sans", sans-serif';
+      ctx.fillText('you mean a lot to me, you are my good friend 💜', W * 0.5, by + 44);
+      ctx.restore();
+    }
+
+    /* ==========================================================================
+       9. MASTER RENDERER
+       ========================================================================== */
+    function render(timeSec) {
+      ctx.clearRect(0, 0, W, H);
+
+      if (state === 'ACT6_SUNSET_BEACH') {
+        drawSunsetBeachScene(timeSec);
+        for (const fp of fallingPetals) {
+          ctx.save();
+          ctx.translate(fp.x, fp.y);
+          ctx.rotate(fp.rot);
+          ctx.fillStyle = fp.color;
+          ctx.beginPath();
+          ctx.ellipse(0, 0, fp.size * 0.45, fp.size, 0, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.restore();
+        }
+        return;
+      }
+
+      const isIndia = !(state === 'ACT2_BOARDING' || state === 'ACT2_FLIGHT');
+
+      // Sky Gradient
+      const skyGrad = ctx.createLinearGradient(0, 0, 0, H);
+      if (!isIndia) {
+        skyGrad.addColorStop(0, '#140b29');
+        skyGrad.addColorStop(0.45, '#46227a');
+        skyGrad.addColorStop(0.78, '#b57edc');
+        skyGrad.addColorStop(1, '#f4a261');
+      } else {
+        skyGrad.addColorStop(0, '#190e36');
+        skyGrad.addColorStop(0.36, '#4a2574');
+        skyGrad.addColorStop(0.66, '#b57edc');
+        skyGrad.addColorStop(1, '#f3d5ff');
+      }
+      ctx.fillStyle = skyGrad;
+      ctx.fillRect(0, 0, W, H);
+
+      // Moon / Sun Orb
+      const orbX = isIndia ? W * 0.80 : W * 0.75;
+      const orbY = H * 0.21;
+      const orbGlow = ctx.createRadialGradient(orbX, orbY, 8, orbX, orbY, 90);
+      orbGlow.addColorStop(0, 'rgba(255, 232, 163, 0.85)');
+      orbGlow.addColorStop(1, 'rgba(216, 180, 254, 0)');
+      ctx.fillStyle = orbGlow;
+      ctx.beginPath();
+      ctx.arc(orbX, orbY, 90, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.fillStyle = '#fff5d6';
+      ctx.beginPath();
+      ctx.arc(orbX, orbY, 22, 0, Math.PI * 2);
+      ctx.fill();
+
+      // Clouds
+      ctx.fillStyle = 'rgba(248, 242, 255, 0.16)';
+      for (const c of bgClouds) {
+        ctx.save();
+        ctx.translate(c.x, c.y);
+        ctx.scale(c.scale, c.scale);
+        ctx.beginPath();
+        ctx.arc(0, 0, 26, 0, Math.PI * 2);
+        ctx.arc(22, -4, 22, 0, Math.PI * 2);
+        ctx.arc(-20, 4, 18, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.restore();
+      }
+
+      // ACT 2A: MANILA AIRPORT
+      if (state === 'ACT2_BOARDING') {
+        const groundY = H * 0.74;
+        ctx.fillStyle = '#251a3d';
+        ctx.fillRect(0, groundY, W, H - groundY);
+        ctx.fillStyle = '#ffd166';
+        for (let rx = 18; rx < W; rx += 64) {
+          ctx.fillRect(rx, groundY + 18, 34, 4);
+        }
+
+        // Control Tower Silhouette
+        ctx.fillStyle = '#1b1033';
+        ctx.fillRect(W - 68, groundY - 140, 20, 140);
+        ctx.fillStyle = '#2d184f';
+        ctx.strokeStyle = '#ffd166';
+        ctx.lineWidth = 1.5;
+        ctx.beginPath();
+        ctx.roundRect(W - 82, groundY - 166, 48, 28, 6);
+        ctx.fill();
+        ctx.stroke();
+
+        // MANILA AIRPORT Departure Sign
+        ctx.fillStyle = '#1d1433';
+        ctx.strokeStyle = '#ffd166';
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.roundRect(16, groundY - 125, 190, 44, 10);
+        ctx.fill();
+        ctx.stroke();
+
+        ctx.fillStyle = '#ffd166';
+        ctx.font = '800 12px "Plus Jakarta Sans", sans-serif';
+        ctx.textAlign = 'center';
+        ctx.fillText('MANILA AIRPORT 🇵🇭', 111, groundY - 106);
+        ctx.fillStyle = '#d8b4fe';
+        ctx.font = '700 10px "Plus Jakarta Sans", sans-serif';
+        ctx.fillText('Departure to India 🇮🇳', 111, groundY - 90);
+
+        drawHelicopter(heli.x, heli.y, heli.tilt, heli.rotorAngle, charlyn.inHeli);
+        if (charlyn.visible) {
+          drawRobloxCharlyn(charlyn.x, charlyn.y, 1, charlyn.walkPhase, charlyn.facing, false, 0, true);
+        }
+      }
+
+      // ACT 2B: FLIGHT ACROSS CLOUDS & MOUNTAIN PEAKS
+      if (state === 'ACT2_FLIGHT') {
+        const ridgeY = H * 0.78;
+        ctx.fillStyle = '#2b184f';
+        ctx.beginPath();
+        ctx.moveTo(0, H);
+        ctx.lineTo(0, ridgeY);
+        ctx.lineTo(W * 0.25, ridgeY - 65);
+        ctx.lineTo(W * 0.55, ridgeY - 25);
+        ctx.lineTo(W * 0.82, ridgeY - 80);
+        ctx.lineTo(W, ridgeY - 30);
+        ctx.lineTo(W, H);
+        ctx.closePath();
+        ctx.fill();
+
+        drawHelicopter(heli.x, heli.y, heli.tilt, heli.rotorAngle, true);
+      }
+
+      // ACTS 2C, 3, 4, 5: INDIA'S HIGHEST LILY GARDEN — 2.6 MILLION (26 LAKH) BLOOMING LILIES
+      if (isIndia) {
+        const groundY = H * 0.60;
+
+        // Himalayan Mountain Ridges
+        ctx.fillStyle = '#361f5e';
+        ctx.beginPath();
+        ctx.moveTo(0, groundY);
+        ctx.lineTo(W * 0.22, groundY - 115);
+        ctx.lineTo(W * 0.48, groundY - 45);
+        ctx.lineTo(W * 0.76, groundY - 140);
+        ctx.lineTo(W, groundY - 55);
+        ctx.lineTo(W, groundY);
+        ctx.closePath();
+        ctx.fill();
+
+        // Snow Caps
+        ctx.fillStyle = 'rgba(248, 242, 255, 0.45)';
+        ctx.beginPath();
+        ctx.moveTo(W * 0.22, groundY - 115);
+        ctx.lineTo(W * 0.17, groundY - 86);
+        ctx.lineTo(W * 0.27, groundY - 88);
+        ctx.closePath();
+        ctx.moveTo(W * 0.76, groundY - 140);
+        ctx.lineTo(W * 0.70, groundY - 102);
+        ctx.lineTo(W * 0.81, groundY - 105);
+        ctx.closePath();
+        ctx.fill();
+
+        // Lush Meadow
+        const meadowGrad = ctx.createLinearGradient(0, groundY - 8, 0, H);
+        meadowGrad.addColorStop(0, '#386641');
+        meadowGrad.addColorStop(1, '#224229');
+        ctx.fillStyle = meadowGrad;
+        ctx.fillRect(0, groundY - 8, W, H - groundY + 8);
+
+        // Helipad Marking under Helicopter
+        ctx.save();
+        ctx.translate(heli.x, groundY + 20);
+        ctx.fillStyle = 'rgba(29, 20, 51, 0.55)';
+        ctx.beginPath();
+        ctx.ellipse(0, 0, 46, 13, 0, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.strokeStyle = '#ffd166';
+        ctx.lineWidth = 2;
+        ctx.stroke();
+        ctx.restore();
+
+        // Wooden Valley Signboard
+        const signX = W * 0.52;
+        const signY = groundY - 76;
+        ctx.fillStyle = '#4a2c18';
+        ctx.fillRect(signX - 108, signY + 26, 6, 54);
+        ctx.fillRect(signX + 102, signY + 26, 6, 54);
+
+        ctx.fillStyle = 'rgba(20, 12, 38, 0.92)';
+        ctx.strokeStyle = '#ffd166';
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.roundRect(signX - 128, signY - 6, 256, 38, 11);
+        ctx.fill();
+        ctx.stroke();
+
+        ctx.fillStyle = '#ffd166';
+        ctx.font = '800 10.5px "Plus Jakarta Sans", sans-serif';
+        ctx.textAlign = 'center';
+        ctx.fillText("INDIA'S HIGHEST LILY GARDEN 🇮🇳", signX, signY + 10);
+        ctx.fillStyle = '#d8b4fe';
+        ctx.font = '700 10px "Plus Jakarta Sans", sans-serif';
+        ctx.fillText('2.6 Million (26 Lakh) Blooming Lilies 🪻', signX, signY + 24);
+
+        // Dense Blooming Lilies
+        for (const dl of decorativeLilies) {
+          drawLilyFlower(dl.x, dl.y, dl.size, dl.palette, timeSec, dl.swayOffset, false);
+        }
+
+        // Tossed Grass Treats
+        for (const gt of grassTreats) {
+          ctx.save();
+          ctx.translate(gt.x, gt.y);
+          ctx.strokeStyle = '#80ed99';
+          ctx.lineWidth = 3;
+          ctx.beginPath();
+          ctx.moveTo(-6, 0); ctx.lineTo(-10, -12);
+          ctx.moveTo(0, 0);  ctx.lineTo(0, -15);
+          ctx.moveTo(6, 0);  ctx.lineTo(10, -12);
+          ctx.stroke();
+          ctx.restore();
+        }
+
+        if (heli.visible) {
+          drawHelicopter(heli.x, heli.y, heli.tilt, heli.rotorAngle, charlyn.inHeli);
+        }
+
+        // Act 4 Collectible Golden & Lavender Lilies
+        if (state === 'ACT4_LILY_GAME') {
+          for (const cl of collectibleLilies) {
+            const pal = cl.isGolden ? ['#fff8d6', '#ffd166'] : ['#f8f2ff', '#d8b4fe'];
+            drawLilyFlower(cl.x, cl.y, cl.isGolden ? 14 : 12, pal, timeSec, cl.bob, cl.isGolden);
+          }
+        }
+
+        // Birthday Cake
+        if (cake.visible) {
+          drawBirthdayCake(cake.x, cake.y, cake.candlesLit, cake.cutProgress, timeSec);
+        }
+
+        // Roaming Capybaras & Speech Bubbles
+        if (state.startsWith('ACT3_') || state === 'ACT4_LILY_GAME' || state === 'ACT5_GIFT_DROP') {
+          const sortedCapys = [...capybaras].sort((a, b) => a.y - b.y);
+          for (const c of sortedCapys) {
+            drawCapybara(c, timeSec);
+          }
+          for (const c of sortedCapys) {
+            if (c.speechTimer > 0 && c.currentMsg) {
+              drawSpeechBubble(c.x, c.y - 26, c.currentMsg);
+            }
+          }
+        }
+
+        // Rohan & Charlyn Roblox Avatars
+        if (rohan.visible) {
+          drawRobloxRohan(rohan.x, rohan.y, 1.02, rohan.walkPhase, rohan.facing, false, rohan.spinAngle);
+          if (rohan.speechTimer > 0 && rohan.speechText) {
+            drawSpeechBubble(rohan.x, rohan.y - 58, rohan.speechText);
+          }
+        }
+
+        if (charlyn.visible) {
+          drawRobloxCharlyn(charlyn.x, charlyn.y, 1.02, charlyn.walkPhase, charlyn.facing, false, charlyn.spinAngle, true);
+        }
+
+        // Musical Notes & Sparkles during Act 3 Spin Dance
+        if (state === 'ACT3_DANCE') {
+          const midX = (charlyn.x + rohan.x) * 0.5;
+          const midY = charlyn.y - 44;
+          ctx.font = '19px sans-serif';
+          ctx.textAlign = 'center';
+          ctx.fillText('🎵 💜 ✨', midX, midY + Math.sin(timeSec * 6) * 4);
+        }
+
+        // Act 5 Present Box
+        if (finalGift.visible) {
+          drawFinalPresentBox(finalGift.x, finalGift.y, finalGift.opened, timeSec);
+        }
+      }
+
+      // Sparkles, Candle Smoke & Falling Petals
+      for (const p of particles) {
+        ctx.fillStyle = p.color;
+        ctx.globalAlpha = Math.max(0, p.life);
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.globalAlpha = 1;
+      }
+
+      for (const fp of fallingPetals) {
+        ctx.save();
+        ctx.translate(fp.x, fp.y);
+        ctx.rotate(fp.rot);
+        ctx.fillStyle = fp.color;
+        ctx.beginPath();
+        ctx.ellipse(0, 0, fp.size * 0.45, fp.size, 0, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.restore();
+      }
+    }
+
+    function gameLoop(now) {
+      if (!gameRunning) return;
+      const dt = Math.min(0.05, (now - lastTime) / 1000);
+      lastTime = now;
+      const timeSec = now / 1000;
+
+      update(dt, timeSec);
+      render(timeSec);
+
+      rafId = requestAnimationFrame(gameLoop);
+    }
+
+    function startBirthdayAdventure() {
+      act1Stage.classList.add('hidden');
+      adventureStage.classList.add('active');
+      initAct2ManilaAirport();
+      gameRunning = true;
+      lastTime = performance.now();
+      rafId = requestAnimationFrame(gameLoop);
+      playChime(523.25, 783.99, 0.35);
+    }
+
+    function returnToOpeningCard() {
+      gameRunning = false;
+      cancelAnimationFrame(rafId);
+      adventureStage.classList.remove('active');
+      act5LetterModal.classList.remove('open');
+      act1Stage.classList.remove('hidden');
+    }
+
+    startAdventureLeftBtn.addEventListener('click', startBirthdayAdventure);
+    startAdventureRightBtn.addEventListener('click', startBirthdayAdventure);
+    backToCardBtn.addEventListener('click', returnToOpeningCard);
+    replayCornerBtn.addEventListener('click', () => {
+      initAct2ManilaAirport();
+      playChime(523.25, 783.99, 0.35);
+    });
+  </script>
+</body>
+</html>
+```
